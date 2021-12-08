@@ -6,29 +6,33 @@ const {db, models: {User, Product} } = require('../server/db')
 
 const products = [{
   name: 'Tito Tequila',
-  price: 76.99,
+  price: 7699,
   stockAmount: 345,
-  ABV: .40,
+  ABV: 40,
+  alcoholType: 'tequila',
   image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/IMG_2530_large.jpg?v=1638336249'
 }, {
   name: 'Rose Rum',
   stockAmount: 789,
-  ABV: .40,
-  price: 89.99,
+  ABV: 40,
+  price: 8999,
+  alcoholType: 'rum',
   description: 'It’s not fun without rum.',
   image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/CC4FB7E5-A900-4F09-A6CE-0CD2003DE775_1_105_c_large.jpg?v=1633748278'
 }, {
   name: 'Walter Whiskey',
   stockAmount: 928,
-  ABV: .60,
-  price: 68.99,
+  ABV: 60,
+  price: 6899,
+  alcoholType: 'whiskey',
   description: 'Too much of anything is bad, but too much good whiskey is barely enough.',
   image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/AE5384CB-0D2F-4D18-904B-DCDE0A8D9DFF_1_201_a_large.jpg?v=1637385276'
 }, {
   name: 'Willow Wine',
   stockAmount: 987,
-  ABV: .11 ,
-  price: 87.99,
+  ABV: 11 ,
+  price: 8799,
+  alcoholType: 'wine',
   description: 'Age is just a number. It’s totally irrelevant unless, of course, you happen to be a bottle of wine',
   image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/IMG_2325_large.jpg?v=1636156142'
 }];

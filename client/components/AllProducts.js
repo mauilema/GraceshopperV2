@@ -13,15 +13,12 @@ class AllProducts extends React.Component {
         <div>
             <h1>Our Current Liquor Selection:</h1>
             <div>
-                {(products.length < 1 || products === undefined) ? <h1>We are completely out of stock :(</h1> :
+                {products.length < 1 ? <h1>We are completely out of stock :(</h1> :
                 products.map(product => (
                     <div className="single-product-border" key={product.id} >
                         <h2>{product.name}</h2>
                         <img src={product.image} />
-                        <h3>${product.price}</h3>
-                        <h3>ABV(Alcohol by Volume): {product.ABV * 100}%</h3>
-                        <p>Description: {product.description}</p>
-                        <p>Units in Stock: {product.stockAmount}</p>
+                        <h3>${product.price / 100}</h3>
                     </div>
                 ))}
             </div>
