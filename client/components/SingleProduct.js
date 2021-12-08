@@ -13,9 +13,9 @@ export class SingleProduct extends React.Component {
         <h2>Single Product</h2>
         <div>
           <div>
-            <h1>Name:{this.props.singleProduct.name}</h1>
+            <h1>{this.props.singleProduct.name}</h1>
             <img src={this.props.singleProduct.image} />
-            <h1>Alcohol Type:{this.props.singleProduct.alcoholType}</h1>
+            <h1>{this.props.singleProduct.abv}</h1>
             <h1>Price:${this.props.singleProduct.price}</h1>
             <h1>Description:{this.props.singleProduct.description}</h1>
           </div>
