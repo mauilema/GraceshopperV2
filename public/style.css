@@ -19,3 +19,11 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.single-product-border {
+  border: 2px solid rgb(110, 108, 108);
+  margin: auto;
+  width: 50%;
+  padding: 15px;
+  text-align: center;
+}
