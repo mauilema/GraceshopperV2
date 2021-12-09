@@ -15,3 +15,16 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+//get single user with associated order/s
+// router.get('/:userId', async (req, res, next) => {
+//   try {
+//   const id = req.params.userId
+//   const singleOrder = await User.findByPk(id, {
+//       include: { model: Order}
+//   })
+//   res.send(singleOrder)
+//   } catch (error) {
+//       next (error)
+//   }
+// })

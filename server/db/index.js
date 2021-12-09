@@ -7,6 +7,7 @@ const Product = require('./models/Product')
 
 //associations could go here!
 
+
 module.exports = {
   db,
   models: {

@@ -7,7 +7,6 @@ export class SingleProduct extends React.Component {
     this.props.getSingleProduct(this.props.match.params.productId);
   }
   render() {
-    console.log('WHAT IS IN HERE', this.props.singleProduct);
     return (
       <div>
         <h2>Single Product</h2>

@@ -22,7 +22,7 @@ class AllProducts extends React.Component {
                 <Link to={`/products/${product.id}`}>
                   <h2>{product.name}</h2>
                   <img src={product.image} />
-                  <h3>${product.price / 100}</h3>
+                  <h3>${product.price}</h3>
                 </Link>
               </div>
             ))
