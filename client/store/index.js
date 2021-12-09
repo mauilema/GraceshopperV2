@@ -13,12 +13,16 @@ import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import auth from './auth'
+import checkoutStoreReducer from './CheckoutStore'
 import productsReducer from './products'
 import singleProductReducer from './singleProduct';
 
+//productsInCart must change component state name
+
 const reducer = combineReducers({ auth,
   products: productsReducer,
-  singleProductReducer,                               
+  singleProductReducer,
+  productsInCart: checkoutStoreReducer,                                
 })
 
 const middleware = composeWithDevTools(
