@@ -32,11 +32,11 @@ class Routes extends Component {
           {isLoggedIn ? (
             <Switch>
               <Route path="/home" component={Home} />
-              <Redirect to="/home" />
+              {/* <Redirect to="/home" /> */}
             </Switch>
           ) : (
             <Switch>
-              <Route path="/" exact component={Login} />
+              <Route path="/" exact component={AllProducts} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
             </Switch>
@@ -44,7 +44,8 @@ class Routes extends Component {
         </div>
         <div>
           <Switch>
-            <Route exact path="/" component={AllProducts} />
+            <Route exact path="/products" component={AllProducts} />
+
             <Route path="/products/:productId" component={SingleProduct} />
           </Switch>
         </div>
@@ -52,6 +53,8 @@ class Routes extends Component {
     );
   }
 }
+
+//landing page has link to allproducts
 
 /**
  * CONTAINER
