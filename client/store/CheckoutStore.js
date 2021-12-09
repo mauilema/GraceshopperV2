@@ -30,7 +30,7 @@ export const _deleteProduct = (product) => ({
 export const fetchProductsInCart = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get("/api/checkoutExample");
+      const { data } = await axios.get("/api/cart");
       dispatch(_setProductsInCart(data));
     } catch (error) {
       console.log(
@@ -43,7 +43,7 @@ export const fetchProductsInCart = () => {
 // export const addProduct = (product) => {
 //   return async (dispatch) =>{
 //   try{
-//     const {data} = await axios.get("/api/checkoutExample", product );
+//     const {data} = await axios.get("/api/cart", product );
 //     dispatch(_addProduct(data));
 //   }catch(error){
 //     console.log('there is an error inside of our addProducts thunk store/checkoutStore', error)
@@ -54,7 +54,7 @@ export const fetchProductsInCart = () => {
 // export const updateProduct = (product) => {
 //   return async (dispatch) =>{
 //   try{
-//     const {data} = await axios.get("/api/checkoutExample", product );
+//     const {data} = await axios.get("/api/cart", product );
 //     dispatch()
 //   }catch(error){
 //     console.log('there is an error inside of our updateProducts thunk store/checkoutStore', error)
@@ -65,9 +65,9 @@ export const fetchProductsInCart = () => {
 export const deleteProduct = (id, history) => {
   return async (dispatch) =>{
   try{
-    const {data} = await axios.delete(`/api/checkoutExample/${id}`);
+    const {data} = await axios.delete(`/api/cart/${id}`);
     dispatch(_deleteProduct(data))
-    history.push("/checkoutExample");
+    history.push("/cart");
   }catch(error){
     console.log('there is an error inside of our deleteProducts thunk store/checkoutStore', error)
   }

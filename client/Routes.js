@@ -42,7 +42,7 @@ class Routes extends Component {
         <div>
           <Switch>
             <Route exact path="/" component={AllProducts} />
-            <Route path="/checkoutExample" component={Checkout} />
+            <Route exact path="/cart" component={Checkout} />
             <Route path="/products/:productId" component={SingleProduct} />
           </Switch>
         </div>

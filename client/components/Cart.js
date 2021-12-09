@@ -19,15 +19,12 @@ export class Checkout extends Component {
   }
 
   render() {
-    console.log(this.props.products);
+    console.log('this is pops products inside the cart.js comp',this.props.products);
     const products = this.props.products;
     console.log();
     return (
       <div>
-        <h1>It's aliveeee</h1>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuy7riov5X5ekBnuRtqbsVgKX9PVyDJP06qw&usqp=CAU" />
-        <h2>these are the components in the dummy data: </h2>
-        <div>
+       <div>
           {products.map((product) => (
             <div key={product.id}>
               <div>{product.name}</div>
@@ -44,7 +41,7 @@ export class Checkout extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products,
+    products: state.productsInCart,
   };
 };
 

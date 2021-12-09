@@ -14,8 +14,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <a href="#" onClick={handleClick}>
             Logout
           </a>
-          <Link to="/home/checkoutExample"> 
-          <img src= "https://www.seekpng.com/png/small/117-1170125_shopping-cart-icon.png" width= "50" height= "40"/>
+          <Link to="/cart"> 
+          <img src= "shoppingBasket" width= "50" height= "40"/>
           </Link>
         </div>
       ) : (
@@ -23,8 +23,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           {/* The navbar will show these links before you log in */}
           <Link to="/login"> Login </Link>
           <Link to="/signup"> Sign Up </Link>
-          <Link to="/checkoutExample"> 
-          <img src= "https://www.seekpng.com/png/small/117-1170125_shopping-cart-icon.png" width= "50" height= "40"/>
+          <Link to="/cart"> 
+          <img src= "shoppingBasket" width= "50" height= "40"/>
           </Link>
         </div>
       )}
