@@ -11,7 +11,6 @@ export class SingleProduct extends React.Component {
   //for this product, i want to push it to local stoage
   //..lev localstorage doc
   render() {
-    console.log('WHAT IS IN HERE', this.props.singleProduct);
     const { singleProduct } = this.props;
     return (
       <div>
