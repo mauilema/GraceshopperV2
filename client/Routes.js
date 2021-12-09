@@ -1,10 +1,13 @@
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import { withRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Login, Signup } from "./components/AuthForm";
-import Home from "./components/Home";
-import { me } from "./store";
+
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
+import AllProducts from './components/AllProducts';
 import Checkout from "./components/Cart";
+import { Login, Signup } from './components/AuthForm';
+import Home from './components/Home';
+import SingleProduct from './components/SingleProduct';
+import { me } from './store';
 
 /**
  * COMPONENT
@@ -19,20 +22,30 @@ class Routes extends Component {
 
     return (
       <div>
-        {isLoggedIn ? (
+        {/* <Switch> 
+        <Route path="/" component={AllProducts}/>
+        </Switch> */}
+        <div>
+          {isLoggedIn ? (
+            <Switch>
+              <Route path="/home" component={Home} />
+              <Redirect to="/home" />
+            </Switch>
+          ) : (
+            <Switch>
+              <Route path="/" exact component={Login} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+            </Switch>
+          )}
+        </div>
+        <div>
           <Switch>
-            <Route exact path="/home" component={Home} />
-            <Redirect to="/home" />
-            <Route path="/home/checkoutExample" component={Checkout} />
-          </Switch>
-        ) : (
-          <Switch>
-            <Route path="/" exact component={Login} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route exact path="/" component={AllProducts} />
             <Route path="/checkoutExample" component={Checkout} />
+            <Route path="/products/:productId" component={SingleProduct} />
           </Switch>
-        )}
+        </div>
       </div>
     );
   }
@@ -59,4 +72,5 @@ const mapDispatch = (dispatch) => {
 
 // The `withRouter` wrapper makes sure that updates are not blocked
 // when the url changes
+
 export default withRouter(connect(mapState, mapDispatch)(Routes));
