@@ -1,12 +1,15 @@
+
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
 
+
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <h1>FS-App-Template</h1>
     <nav>
+
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
@@ -14,8 +17,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <a href="#" onClick={handleClick}>
             Logout
           </a>
+          <Link to="/products">Shop</Link>
           <Link to="/cart"> 
-          <img src= "shoppingBasket" width= "50" height= "40"/>
+          <img src= "../../public/shoppingBasket.png" width= "50" height= "40"/>
           </Link>
         </div>
       ) : (
@@ -23,11 +27,13 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           {/* The navbar will show these links before you log in */}
           <Link to="/login"> Login </Link>
           <Link to="/signup"> Sign Up </Link>
+          <Link to="/products">Shop</Link>
           <Link to="/cart"> 
-          <img src= "shoppingBasket" width= "50" height= "40"/>
+          <img src= "../../public/shoppingBasket.png" width= "50" height= "40"/>
           </Link>
         </div>
       )}
+
     </nav>
     <hr />
   </div>
