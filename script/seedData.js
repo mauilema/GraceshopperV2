@@ -1,47 +1,5 @@
 const faker = require('faker')
 
-
-const oldProducts = [{
-    name: 'Tito Tequila',
-    price: faker.datatype.number({min: 40, max: 120}),
-    stockAmount: 345,
-    ABV: 40,
-    alcoholType: 'tequila',
-    image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/IMG_2530_large.jpg?v=1638336249'
-  }, {
-    name: 'Rose Rum',
-    stockAmount: 789,
-    ABV: 40,
-    price: faker.datatype.number({min: 40, max: 120}),
-    alcoholType: 'rum',
-    description: 'It’s not fun without rum.',
-    image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/CC4FB7E5-A900-4F09-A6CE-0CD2003DE775_1_105_c_large.jpg?v=1633748278'
-  }, {
-    name: 'Walter Whiskey',
-    stockAmount: 928,
-    ABV: 60,
-    price: faker.datatype.number({min: 40, max: 120}),
-    alcoholType: 'whiskey',
-    description: 'Too much of anything is bad, but too much good whiskey is barely enough.',
-    image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/AE5384CB-0D2F-4D18-904B-DCDE0A8D9DFF_1_201_a_large.jpg?v=1637385276'
-  }, {
-    name: 'Willow Wine',
-    stockAmount: 987,
-    ABV: 11 ,
-    price: faker.datatype.number({min: 40, max: 120}),
-    alcoholType: 'wine',
-    description: 'Age is just a number. It’s totally irrelevant unless, of course, you happen to be a bottle of wine',
-    image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/IMG_2325_large.jpg?v=1636156142'
-  },  {
-    name: faker.fake("{{name.firstName}} {{name.lastName}}"),
-    stockAmount: faker.datatype.number({min: 0, max: 1500}),
-    ABV: faker.datatype.number({min: 0, max: 85}) ,
-    price: faker.datatype.number({min: 40, max: 120}),
-    alcoholType: 'wine',
-    description: 'Age is just a number. It’s totally irrelevant unless, of course, you happen to be a bottle of wine',
-    image: 'https://cdn.shopify.com/s/files/1/0363/8621/products/IMG_2325_large.jpg?v=1636156142'
-  }];
-
 let products = []
 
 for (let i = 1; i <=150 ; i++) {
@@ -87,7 +45,22 @@ for (let i = 1; i <=100 ; i++) {
     })
 }
 
+let orders = []
+
+for (let i = 1; i <=200 ; i++) {
+  let fulfilled = faker.datatype.boolean()
+  let userId = faker.datatype.number({min: 1, max: 100})
+
+
+
+  orders.push({
+      fulfilled,
+      userId, 
+  })
+}
+
 module.exports = {
     products,
-    users
+    users,
+    orders
 }
