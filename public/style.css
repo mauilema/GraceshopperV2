@@ -27,3 +27,8 @@ form div {
   padding: 15px;
   text-align: center;
 }
+
+.products-image-size {
+  height: 500px;
+  width: 500px
+}

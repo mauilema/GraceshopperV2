@@ -21,7 +21,7 @@ class AllProducts extends React.Component {
               <div className="single-product-border" key={product.id}>
                 <Link to={`/products/${product.id}`}>
                   <h2>{product.name}</h2>
-                  <img src={product.image} />
+                  <img className="products-image-size" src={product.image} />
                   <h3>${product.price}</h3>
                 </Link>
               </div>
