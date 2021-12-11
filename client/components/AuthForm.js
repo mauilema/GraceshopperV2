@@ -69,7 +69,7 @@ const mapDispatch = (dispatch) => {
 			} else {
 				dispatch(
 					authenticate(username, password, null, null, null, null, formName)
-				);
+				)
 			}
 		},
 	};

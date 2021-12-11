@@ -21,10 +21,11 @@ form div {
 }
 
 .single-product-border {
-  border: 2px solid rgb(110, 108, 108);
+  border: 2px solid rgb(218, 214, 214);
   margin: auto;
-  width: 50%;
+  width: 75%;
   padding: 15px;
+  margin-bottom: 5%;
   text-align: center;
 }
 
