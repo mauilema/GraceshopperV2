@@ -16,12 +16,13 @@ export class SingleProduct extends React.Component {
       <div>
         <h2>Single Product</h2>
         <div>
-          <div>
+          <div className="single-product-border">
             <h1>{singleProduct.name}</h1>
-            <img src={singleProduct.image} />
-            <h1>{singleProduct.abv}</h1>
-            <h1>Price:${singleProduct.price}</h1>
-            <h1>Description:{singleProduct.description}</h1>
+            <img className="products-image-size" src={singleProduct.image} />
+            <h1>Price: ${singleProduct.price}</h1>
+            <p>Description: {singleProduct.description}</p>
+            <h3>ABV: {singleProduct.ABV}%</h3>
+            <h3>Category: {singleProduct.alcoholType}</h3>
           </div>
         </div>
       </div>
