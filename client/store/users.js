@@ -39,9 +39,14 @@ export const fetchUsers = () => {
 export const addUser = (user, history) => {
     return async (dispatch) => {
       try {
-      const { data: added} = await axios.post('api/users', user)
+      const token = window.localStorage.getItem('token')
+      const { data: added} = await axios.post('api/users', user, {
+          headers: {
+              authorization: token
+          }
+      })
       dispatch(_addUser(added))
-      history.push('/users/admin')
+      history.push('/users')
       } catch (error) {
         console.log(error)
       }
