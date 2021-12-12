@@ -33,3 +33,8 @@ form div {
   height: 500px;
   width: 500px
 }
+
+.add-user-form {
+  margin: auto;
+  width: 50%
+}

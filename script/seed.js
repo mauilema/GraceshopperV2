@@ -10,6 +10,27 @@ const { products, users, orders } = require('./seedData')
 async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
+  
+  const admins = [{
+    username: 'JoseAdmin',
+    fullName: 'Jose Admin',
+    isAdmin: 'true',
+    password: 'admin456',
+    dob: '1999-04-01',
+    email: 'fsajose@aol.com'
+  }, {
+    username: 'MiliAdmin',
+    fullName: 'Mili Admin',
+    isAdmin: 'true',
+    password: 'admin123',
+    dob: '2000-05-11',
+    email: 'fsamili@aol.com'
+  }
+  ]
+
+  await Promise.all(admins.map(admin => {
+    return User.create(admin)
+  }))
 
   const allUsers = await Promise.all(users.map(user => {
     return User.create(user)
