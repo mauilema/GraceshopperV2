@@ -8,6 +8,7 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import SingleProduct from './components/SingleProduct';
 import { me } from './store';
+import AllUsersAdminView from './components/AllUsersAdminView';
 
 /**
  * COMPONENT
@@ -21,26 +22,26 @@ class Routes extends Component {
     const { isLoggedIn } = this.props;
 
     return (
-      <div>
+      <Switch>
           <Route exact path="/" component={AllProducts} />
           <Route exact path="/products" component={AllProducts} />
           <Route path="/cart" component={Checkout} />
           <Route path="/products/:productId" component={SingleProduct} />
-        <div>
+          <Route path="/users" component={AllUsersAdminView} />
+
           {isLoggedIn ? (
-            <div>
+            <Switch>
               <Route path="/home" component={Home} />
               <Redirect to="/home" />
-
-            </div>
+            </Switch>
           ) : (
-            <div>
+            <Switch>
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
-            </div>
+            </Switch>
           )}
-        </div>
-      </div>
+
+      </Switch>
     );
   }
 }

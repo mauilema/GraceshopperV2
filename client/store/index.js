@@ -16,13 +16,15 @@ import auth from './auth'
 import checkoutStoreReducer from './CheckoutStore'
 import productsReducer from './products'
 import singleProductReducer from './singleProduct';
+import usersReducer from './users'
 
 //productsInCart must change component state name
 
 const reducer = combineReducers({ auth,
   products: productsReducer,
   singleProductReducer,
-  productsInCart: checkoutStoreReducer,                                
+  productsInCart: checkoutStoreReducer,
+  users: usersReducer                                
 })
 
 const middleware = composeWithDevTools(

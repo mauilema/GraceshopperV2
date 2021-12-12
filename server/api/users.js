@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { models: { User, Order, Product }} = require('../db')
-module.exports = router
+const verifyAdmin = require('./authMiddleware')
 
 router.get('/', async (req, res, next) => {
   try {
@@ -15,6 +15,17 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+//get all users with info only available to logged in admins
+//api/users/admin
+router.get('/admin', verifyAdmin , async (req, res, next) => {
+  try {
+    const AllUsers = await User.findAll();
+    res.send(AllUsers);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // get single user with associated order/s
 router.get('/:userId', async (req, res, next) => {
@@ -35,3 +46,15 @@ router.get('/:userId', async (req, res, next) => {
       next (error)
   }
 })
+
+//admin post request with verifyAdmin middleware
+
+router.post('/', verifyAdmin ,async (req, res, next) => {
+  try {
+  res.status(201).send(await User.create(req.body))
+  } catch (error) {
+    next (error)
+  }
+} )
+
+module.exports = router
