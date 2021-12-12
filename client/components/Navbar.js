@@ -3,12 +3,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
+import AllUsersAdminView from "./AllUsersAdminView";
 
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
   <div>
     <h1>FS-App-Template</h1>
     <nav>
+
+      {isLoggedIn && isAdmin && (
+          <Link to="/users" >View All Users</Link>
+      )}
 
       {isLoggedIn ? (
         <div>
@@ -21,7 +26,6 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <Link to="/cart"> 
           <img src= "../../public/shoppingBasket.png" width= "50" height= "40"/>
           </Link>
-          <Link to="/users" >View All Users</Link>
         </div>
       ) : (
         <div>
@@ -35,6 +39,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       )}
 
+     
+
 
     </nav>
     <hr />
@@ -47,6 +53,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
+    isAdmin: !!state.auth.isAdmin
   };
 };
 

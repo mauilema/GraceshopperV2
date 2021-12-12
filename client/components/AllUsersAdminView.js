@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../store/users';
-import { Route, Redirect, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import AllUserByAdminForm from './AllUserByAdminForm';
 
 class AllUsersAdminView extends React.Component {
