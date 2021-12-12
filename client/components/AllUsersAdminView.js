@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../store/users';
 import { Route } from 'react-router-dom';
-import AllUserByAdminForm from './AllUserByAdminForm';
+import AddUserByAdminForm from './AddUserByAdminForm';
 
 class AllUsersAdminView extends React.Component {
   componentDidMount() {
@@ -13,7 +13,7 @@ class AllUsersAdminView extends React.Component {
     return (
         <div>
             <div>
-            <Route path="/users" component={AllUserByAdminForm} />
+            <Route path="/users" component={AddUserByAdminForm} />
             </div>
             <h1>Our Beloved Users:</h1> 
             <div>

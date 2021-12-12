@@ -5,7 +5,7 @@ module.exports = router
 router.post('/login', async (req, res, next) => {
   try {
     res.send({ token: await User.authenticate(req.body)});
-    console.log('admin token ', { token: await User.authenticate(req.body)}) 
+    console.log('admin token from auth index folder', { token: await User.authenticate(req.body)}) 
   } catch (err) {
     next(err)
   }

@@ -14,7 +14,6 @@ export class SingleProduct extends React.Component {
     const { singleProduct } = this.props;
     return (
       <div>
-        <h2>Single Product</h2>
         <div>
           <div className="single-product-border">
             <h1>{singleProduct.name}</h1>
