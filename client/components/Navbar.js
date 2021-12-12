@@ -21,6 +21,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <Link to="/cart"> 
           <img src= "../../public/shoppingBasket.png" width= "50" height= "40"/>
           </Link>
+          <Link to="/users" >View All Users</Link>
         </div>
       ) : (
         <div>
