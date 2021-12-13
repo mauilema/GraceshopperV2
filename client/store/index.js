@@ -9,6 +9,8 @@ import singleProductReducer from './singleProduct';
 import currentUser from './auth';
 import cart from './cart'
 import orders from './order'
+import usersReducer from './users'
+import singleUserReducer from './singleUserByAdmin'
 
 //productsInCart must change component state name
 
@@ -19,8 +21,11 @@ const reducer = combineReducers({
 	productsInCart: checkoutStoreReducer,
 	currentUser,
   cart,
-  orders
+  orders,
+  users: usersReducer,
+  user: singleUserReducer
 });
+
 
 const middleware = composeWithDevTools(
 	applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))

@@ -8,7 +8,6 @@ import LoginForm from './LoginForm';
  * COMPONENT
  */
 const AuthForm = (props) => {
-	console.log('This is auth form props', props);
 	// const { name, displayName, handleSubmit, error } = this.props;
 	if (props.name === 'login') {
 		return <LoginForm {...props} />;
@@ -68,6 +67,7 @@ const mapDispatch = (dispatch) => {
 				);
 			} else {
 				dispatch(authenticate(username, password, null, null,null, null, formName));
+
 			}
 		},
 	};

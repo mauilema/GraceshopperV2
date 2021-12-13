@@ -1,11 +1,11 @@
 'use strict';
-
 const {
 	db,
 	models: { User, Product, Order },
 } = require('../server/db');
 const ProductOrders = require('../server/db/models/ProductOrders');
 const { products, users, orders, productOrders } = require('./seedData');
+
 
 /**
  * seed - this function clears the database, updates tables to
@@ -15,11 +15,27 @@ async function seed() {
 	await db.sync({ force: true }); // clears db and matches models to tables
 	console.log('db synced!');
 
-	// Creating Users
-	// const users = await Promise.all([
-	//   User.create({ username: 'cody', password: '123' }),
-	//   User.create({ username: 'murphy', password: '123' }),
-	// ])
+	 const admins = [{
+    username: 'JoseAdmin',
+    fullName: 'Jose Admin',
+    isAdmin: 'true',
+    password: 'admin456',
+    dob: '1999-04-01',
+    email: 'fsajose@aol.com'
+  }, {
+    username: 'MiliAdmin',
+    fullName: 'Mili Admin',
+    isAdmin: 'true',
+    password: 'admin123',
+    dob: '2000-05-11',
+    email: 'fsamili@aol.com'
+  }
+  ]
+   
+   await Promise.all(admins.map(admin => {
+    return User.create(admin)
+  }))
+   
 	await Promise.all(
 		users.map((user) => {
 			return User.create(user);
@@ -48,6 +64,7 @@ async function seed() {
 			});
 		})
 	);
+
 
 	console.log(`seeded ${users.length} users`);
 	console.log(`seeded successfully`);

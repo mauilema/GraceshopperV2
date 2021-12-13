@@ -30,11 +30,11 @@ const SignUpForm = (props) => {
 					</label>
 					<input name="email" type="text" />
 					<label htmlFor="address">
-						<text>Address</text>
+						Address
 					</label>
 					<input name="address" type="text" />
 					<label htmlFor="dob">
-						<text>Date of Birth</text>
+						Date of Birth
 					</label>
 					<input name="dob" type="date" />
 				</div>

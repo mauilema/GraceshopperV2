@@ -8,46 +8,50 @@ import SingleProduct from './components/SingleProduct';
 import { me } from './store';
 import GuestCart from './components/Cart';
 import UserCart from './components/UserCart';
+import AllUsersAdminView from './components/AllUsersAdminView';
+import SingleUser from './components/SingleUser';
+
 
 /**
  * COMPONENT
  */
 class Routes extends Component {
-	componentDidMount() {
-		this.props.loadInitialData();
-	}
 
-	render() {
-		const { isLoggedIn } = this.props;
+  componentDidMount() {
+    this.props.loadInitialData();
+  }
 
-		return (
-			<div>
-				<div>
-					{isLoggedIn ? (
-						<Switch>
-							<Route path="/user/:userId" component={Profile} />
-							<Route path="/" exact component={AllProducts} />
-							<Route exact path="/cart/:userId" component={UserCart} />
-						</Switch>
-					) : (
-						<Switch>
-							<Route path="/" exact component={AllProducts} />
-							<Route path="/login" component={Login} />
-							<Route path="/signup" component={Signup} />
-							<Route exact path="/cart" component={GuestCart} />
-						</Switch>
-					)}
-				</div>
-				<div>
-					<Switch>
-						<Route exact path="/products" component={AllProducts} />
-
-						<Route path="/products/:productId" component={SingleProduct} />
-					</Switch>
-				</div>
-			</div>
-		);
-	}
+  render() {
+    const { isLoggedIn, isAdmin } = this.props;
+    return (
+      <Switch>
+          <Route exact path="/" component={AllProducts} />
+          <Route exact path="/products" component={AllProducts} />
+          <Route path="/cart" component={Checkout} />
+          <Route path="/products/:productId" component={SingleProduct} />
+          <Route path="/users/:userId" component={SingleUser} />
+          
+          {isLoggedIn ? (
+            <Switch>
+              <Route path="/user/:userId" component={Profile} />
+            <Route exact path="/cart/:userId" component={UserCart} />
+              {isLoggedIn && isAdmin && (
+                <Switch>
+                  <Route exact path="/users" component={AllUsersAdminView} />
+                </Switch>
+              )}
+              <Redirect to="/home" />
+            </Switch>
+          ) : (
+            <Switch>
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+            </Switch>
+          )}
+       
+      </Switch>
+    );
+  }
 }
 
 //landing page has link to allproducts
@@ -56,11 +60,12 @@ class Routes extends Component {
  * CONTAINER
  */
 const mapState = (state) => {
-	return {
-		// Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
-		// Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
-		isLoggedIn: !!state.auth.id,
-	};
+  return {
+    // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
+    // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
+    isLoggedIn: !!state.auth.id,
+    isAdmin: !!state.auth.isAdmin
+  };
 };
 
 const mapDispatch = (dispatch) => {

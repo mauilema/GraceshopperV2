@@ -1,94 +1,88 @@
-const router = require('express').Router();
-const {
-	models: { User },
-} = require('../db');
-const Orders = require('../db/models/Orders');
-const ProductOrders = require('../db/models/ProductOrders');
-module.exports = router;
+const router = require('express').Router()
+const { models: { User, Order, Product }} = require('../db')
+const verifyAdmin = require('./authMiddleware')
 
-router.param('id', async (req, res, next, id) => {
-	try {
-		const user = await User.findByPk(id);
-		if (!user) res.sendStatus(404);
-		req.requestedUser = user;
-		next();
-		return null;
-	} catch (err) {
-		next(err);
-	}
+//get all users with info only available to logged in admins
+//api/users/admin
+router.get('/admin', verifyAdmin , async (req, res, next) => {
+  try {
+    const AllUsers = await User.findAll();
+    res.send(AllUsers);
+  } catch (err) {
+    next(err);
+  }
 });
 
-router.get('/', async (req, res, next) => {
-	try {
-		const users = await User.findAll({
-			// explicitly select only the id and username fields - even though
-			// users' passwords are encrypted, it won't help if we just
-			// send everything to anyone who asks!
-			attributes: ['id', 'username'],
-		});
-		res.json(users);
-	} catch (err) {
-		next(err);
-	}
-});
+//get user by id, only available to admin
 
-const isAdminMiddleware = (req, res, next) => {
-	if (!req.user) {
-		const err = new Error('Please sign up or log in');
-		err.status = 401;
-		next(err);
-	} else if (req.user.isAdmin === false) {
-		//if the current user is not admin and is not his/her own profile
-		const err = new Error(`I'm watching you...`);
-		err.status = 401;
-		next(err);
-	} else {
-		next();
-	}
-};
+router.get('/:userId', verifyAdmin, async (req, res, next) => {
+  try {
+  const id = req.params.userId
+  const singleUser = await User.findByPk(id)
+  if (!singleUser) {
+      res.sendStatus(404)
+      return
+  }
+  res.send(singleUser)
+  } catch (error) {
+      next (error)
+  }
+})
 
-router.get('/:id', isAdminMiddleware, async (req, res, next) => {
-	try {
-		const id = req.params.userId
+// get single user with associated order/s
+router.get('/:userId', async (req, res, next) => {
+  try {
+  const id = req.params.userId
   const userWithOrders = await User.findByPk(id, {
     include: [{
-      model: Orders,
+      model: Order,
       as: 'orders',
       include: [{
-        model: ProductOrders,
+        model: Product,
         as: 'products'
       }]
     }]
   })
   res.send(userWithOrders)
-	} catch (err) {
-		next(err);
-	}
-});
+  } catch (error) {
+      next (error)
+  }
+})
 
-router.post('/', isAdminMiddleware, async (req, res, next) => {
-	try {
-		const user = await User.create(req.body);
-		res.status(201).json(user);
-	} catch (err) {
-		next(err);
-	}
-});
+//admin post/create request with verifyAdmin middleware
 
-router.put('/:id', isAdminMiddleware, async (req, res, next) => {
-	try {
-		const updatedUser = await req.requestedUser.update(req.body);
-		res.json(updatedUser);
-	} catch (err) {
-		next(err);
-	}
-});
+router.post('/', verifyAdmin , async (req, res, next) => {
+  try {
+  res.status(201).send(await User.create(req.body))
+  } catch (error) {
+    next (error)
+  }
+} )
 
-router.delete('/:id', isAdminMiddleware, async (req, res, next) => {
-	try {
-		await req.requestedUser.destroy();
-		res.sendStatus(204);
-	} catch (err) {
-		next(err);
-	}
-});
+//admin put/update request with verifyAdmin middleware
+
+router.put('/:userId', verifyAdmin, async (req, res, next) => {
+  try {
+  const id = req.params.userId
+  const userToUpdate = await User.findByPk(id)
+  res.send(await userToUpdate.update(req.body))
+  } catch (error) {
+    next (error)
+  }
+} )
+
+//admin delete request with verifyAdmin middleware
+
+router.delete('/:userId', verifyAdmin, async (req, res, next) => {
+    try {
+    const id = req.params.userId
+    const userToDelete = await User.findByPk(id)
+    await userToDelete.destroy()
+    res.send(userToDelete)
+  } catch (error) {
+      next (error)
+    }
+  } )
+
+
+module.exports = router

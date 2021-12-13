@@ -2,56 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleProduct } from '../store/singleProduct';
 
+export class SingleProduct extends React.Component {
+  componentDidMount() {
+    this.props.getSingleProduct(this.props.match.params.productId);
+  }
 
-export class SingleProduct extends Component {
-	constructor() {
-		super();
-		this.addToCart = this.addToCart.bind(this);
-	}
-
-	componentDidMount() {
-		this.props.getSingleProduct(this.props.match.params.productId);
-	}
-
-	addToCart = async (id) => {
-		if (this.props.currentUser.id) {
-			const containsItem = this.props.cart.filter((item) => {
-				return item.productId === id;
-			});
-			if (containsItem.length) {
-				await this.props.add({ id, inc: 'inc' });
-			} else {
-				await this.props.addNew({ id });
-			}
-		}
-		document.querySelector('.cart-nav span').textContent =
-			Number(document.querySelector('.cart-nav span').textContent) + 1;
-	};
-
-	render() {
-		const { singleProduct } = this.props;
-		return (
-			<div>
-				<div>
-					<div>
-						<h1>{singleProduct.name}</h1>
-						<img src={singleProduct.image} />
-						<h1>{singleProduct.abv}</h1>
-						<h1>Price:${singleProduct.price}</h1>
-						<h1>Description:{singleProduct.description}</h1>
-						<button
-							onClick={() => {
-								this.addToCart(singleProduct.id);
-							}}
-						>
-							Add to Cart
-						</button>
-					</div>
-				</div>
-			</div>
-		);
-	}
+  //add a method that will create a button "add to cart"
+  //for this product, i want to push it to local stoage
+  //..lev localstorage doc
+  render() {
+    const { singleProduct } = this.props;
+    return (
+      <div>
+        <div>
+          <div className="single-product-border">
+            <h1>{singleProduct.name}</h1>
+            <img className="products-image-size" src={singleProduct.image} />
+            <h1>Price: ${singleProduct.price}</h1>
+            <p>Description: {singleProduct.description}</p>
+            <h3>ABV: {singleProduct.ABV}%</h3>
+            <h3>Category: {singleProduct.alcoholType}</h3>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
+
+
 
 const mapState = (state) => {
 	return {

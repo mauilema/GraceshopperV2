@@ -20,8 +20,9 @@ const User = db.define('user', {
 	},
 	email: {
 		type: Sequelize.STRING,
+    unique: true,
 		validate: {
-			isEmail: true,
+			isEmail: true
 		},
 		unique: {
 			args: true,
@@ -34,6 +35,10 @@ const User = db.define('user', {
 	dob: {
 		type: Sequelize.DATEONLY,
 	},
+	isAdmin: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: false
+	}
 });
 
 module.exports = User;
