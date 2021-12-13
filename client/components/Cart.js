@@ -19,7 +19,6 @@ export class Checkout extends Component {
   }
 
   render() {
-    console.log('this is pops products inside the cart.js comp',this.props.products);
     const products = this.props.products;
     console.log();
     return (

@@ -1,27 +1,28 @@
-
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import AllProducts from './components/AllProducts';
-import Checkout from "./components/Cart";
 import { Login, Signup } from './components/AuthForm';
-import Home from './components/Home';
+import Profile from './components/Profile';
 import SingleProduct from './components/SingleProduct';
 import { me } from './store';
+import GuestCart from './components/Cart';
+import UserCart from './components/UserCart';
 import AllUsersAdminView from './components/AllUsersAdminView';
 import SingleUser from './components/SingleUser';
+
 
 /**
  * COMPONENT
  */
 class Routes extends Component {
+
   componentDidMount() {
     this.props.loadInitialData();
   }
 
   render() {
     const { isLoggedIn, isAdmin } = this.props;
-
     return (
       <Switch>
           <Route exact path="/" component={AllProducts} />
@@ -32,7 +33,8 @@ class Routes extends Component {
           
           {isLoggedIn ? (
             <Switch>
-              <Route path="/home" component={Home} />
+              <Route path="/user/:userId" component={Profile} />
+            <Route exact path="/cart/:userId" component={UserCart} />
               {isLoggedIn && isAdmin && (
                 <Switch>
                   <Route exact path="/users" component={AllUsersAdminView} />
@@ -46,7 +48,6 @@ class Routes extends Component {
               <Route path="/signup" component={Signup} />
             </Switch>
           )}
-
        
       </Switch>
     );
@@ -68,11 +69,11 @@ const mapState = (state) => {
 };
 
 const mapDispatch = (dispatch) => {
-  return {
-    loadInitialData() {
-      dispatch(me());
-    },
-  };
+	return {
+		loadInitialData() {
+			dispatch(me());
+		},
+	};
 };
 
 // The `withRouter` wrapper makes sure that updates are not blocked

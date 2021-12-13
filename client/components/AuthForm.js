@@ -27,7 +27,7 @@ const mapLogin = (state) => {
 	return {
 		name: 'login',
 		displayName: 'Login',
-		error: state.auth.error,
+		error: state.currentUser.error,
 	};
 };
 
@@ -35,7 +35,7 @@ const mapSignup = (state) => {
 	return {
 		name: 'signup',
 		displayName: 'Sign Up',
-		error: state.auth.error,
+		error: state.currentUser.error,
 	};
 };
 
@@ -47,9 +47,9 @@ const mapDispatch = (dispatch) => {
 			const username = evt.target.username.value;
 			const password = evt.target.password.value;
 			if (formName === 'signup') {
-				// const formName = evt.target.name;
-				// const username = evt.target.username.value;
-				// const password = evt.target.password.value;
+				const formName = evt.target.name;
+				const username = evt.target.username.value;
+				const password = evt.target.password.value;
 				const fullName = evt.target.fullName.value;
 				const email = evt.target.email.value;
 				const address = evt.target.address.value;
@@ -66,9 +66,8 @@ const mapDispatch = (dispatch) => {
 					)
 				);
 			} else {
-				dispatch(
-					authenticate(username, password, null, null, null, null, formName)
-				)
+				dispatch(authenticate(username, password, null, null,null, null, formName));
+
 			}
 		},
 	};

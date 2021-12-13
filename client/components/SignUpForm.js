@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 /**
  * COMPONENT
  */
@@ -40,7 +39,9 @@ const SignUpForm = (props) => {
 					<input name="dob" type="date" />
 				</div>
 				<div>
-					<button type="submit">{displayName}</button>
+					<a href="/home">
+						<button type="submit">{displayName}</button>
+					</a>
 				</div>
 				{error && error.response && <div> {error.response.data} </div>}
 			</form>

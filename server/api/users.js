@@ -2,20 +2,6 @@ const router = require('express').Router()
 const { models: { User, Order, Product }} = require('../db')
 const verifyAdmin = require('./authMiddleware')
 
-router.get('/', async (req, res, next) => {
-  try {
-    const users = await User.findAll({
-      // explicitly select only the id and username fields - even though
-      // users' passwords are encrypted, it won't help if we just
-      // send everything to anyone who asks!
-      attributes: ['id', 'username']
-    })
-    res.json(users)
-  } catch (err) {
-    next(err)
-  }
-})
-
 //get all users with info only available to logged in admins
 //api/users/admin
 router.get('/admin', verifyAdmin , async (req, res, next) => {

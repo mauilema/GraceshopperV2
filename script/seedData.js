@@ -29,39 +29,47 @@ for (let i = 1; i <=150 ; i++) {
     let description = faker.lorem.words(12)
     let alcoholType = faker.random.arrayElement(['tequila', 'rum', 'whiskey', 'wine'])
     let image = faker.random.arrayElement(assignLiquorTypes(alcoholType))
+let users = [];
+  
+for (let i = 1; i <= 100; i++) {
+	let username = faker.internet.userName();
+	let password = 'password123';
+	let fullName = faker.fake('{{name.firstName}} {{name.lastName}}');
+	let email = faker.internet.email();
+	let address = `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.state()} ${faker.address.zipCode()}`;
+	let dob = faker.date.between('1965-01-01', '2000-01-01');
 
-
-    products.push({
-        name,
-        image,
-        ABV,
-        stockAmount,
-        price,
-        description,
-        alcoholType
-    })
+	users.push({
+		username,
+		password,
+		fullName,
+		email,
+		address,
+		dob,
+	});
 }
 
-let users = []
+let orders = [];
 
-for (let i = 1; i <=100 ; i++) {
-    let username = faker.internet.userName()
-    let password = 'password123'
-    let fullName = faker.fake("{{name.firstName}} {{name.lastName}}")
-    let email = faker.internet.email()
-    let address = `${faker.address.streetAddress()} ${faker.address.city()} ${faker.address.state()} ${faker.address.zipCode()}`
-    let dob = faker.date.between('1965-01-01', '2000-01-01')
+for (let i = 1; i <= 200; i++) {
+	let fulfilled = faker.datatype.boolean();
+	let userId = faker.datatype.number({ min: 1, max: 100 });
 
+	orders.push({
+		fulfilled,
+		userId,
+	});
+}
+let productOrders = [];
 
-    users.push({
-        username,
-        password,
-        fullName,
-        email,
-        address,
-        dob
+for (let i = 1; i <= 200; i++) {
+	let orderId = i;
+	let productId = faker.datatype.number({ min: 1, max: 150 });
 
-    })
+	productOrders.push({
+		orderId,
+		productId,
+	});
 }
 
 let orders = []
@@ -79,7 +87,9 @@ for (let i = 1; i <=200 ; i++) {
 }
 
 module.exports = {
-    products,
-    users,
-    orders
-}
+	products,
+	users,
+	orders,
+	productOrders,
+};
+

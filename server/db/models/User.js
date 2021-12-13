@@ -24,6 +24,10 @@ const User = db.define('user', {
 		validate: {
 			isEmail: true
 		},
+		unique: {
+			args: true,
+			msg: 'Email address already in use!',
+		},
 	},
 	address: {
 		type: Sequelize.STRING,

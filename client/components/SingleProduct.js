@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleProduct } from '../store/singleProduct';
 
@@ -29,31 +29,21 @@ export class SingleProduct extends React.Component {
   }
 }
 
+
+
 const mapState = (state) => {
-  return { singleProduct: state.singleProductReducer };
-  //have to return state as value to a key
+	return {
+		singleProduct: state.singleProductReducer,
+		cart: state.cart,
+		currentUser: state.currentUser,
+	};
+	//have to return state as value to a key
 };
 
 const mapDispatch = (dispatch) => {
-  return {
-    getSingleProduct: (productId) => dispatch(getSingleProduct(productId)),
-  };
+	return {
+		getSingleProduct: (productId) => dispatch(getSingleProduct(productId)),
+	};
 };
 
 export default connect(mapState, mapDispatch)(SingleProduct);
-
-{
-  /* <button
-type="button"
-onClick={() => this.props.deleteRobot(robot.id)}
->
-X Add To Cart
-</button> */
-}
-
-//onClick handl
-
-//determine if the user is logged in
-
-//guest user - local storage
-//logged in user - store in db
