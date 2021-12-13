@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchProductsInCart, deleteProduct } from "../store/CheckoutStore";
+import { deleteProduct } from "../store/CheckoutStore";
 
 export class Checkout extends Component {
   // constructor(){
@@ -25,14 +25,15 @@ export class Checkout extends Component {
     return (
       <div>
        <div>
-          {products.map((product) => (
+       working
+          {/* {products.map((product) => (
             <div key={product.id}>
               <div>{product.name}</div>
               <button onClick={() => this.props.deleteProduct(product.id)}>
                 DELETE ME
               </button>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     );
@@ -41,13 +42,13 @@ export class Checkout extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.productsInCart,
+    cart: state.cart,
   };
 };
 
 const mapDispatchToProps = (dispatch, { history }) => {
   return {
-    getProductsAddedToCart: () => dispatch(fetchProductsInCart()),
+
     deleteProduct: (id) => dispatch(deleteProduct(id, history)),
   };
 };

@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 import { logout } from "../store";
 
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ handleClick, isLoggedIn, cart }) => (
   <div>
     <h1>FS-App-Template</h1>
     <nav>
-
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
@@ -19,7 +18,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </a>
           <Link to="/products">Shop</Link>
           <Link to="/cart"> 
-          <img src= "../../public/shoppingBasket.png" width= "50" height= "40"/>
+          <img src= "https://cdn.shopify.com/s/files/1/0139/6552/5046/t/1/assets/cart.png?20010" width= "50" height= "40"/>
           </Link>
         </div>
       ) : (
@@ -29,7 +28,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <Link to="/signup"> Sign Up </Link>
           <Link to="/products">Shop</Link>
           <Link to="/cart"> 
-          <img src= "../../public/shoppingBasket.png" width= "50" height= "40"/>
+          <img src= "https://cdn.shopify.com/s/files/1/0139/6552/5046/t/1/assets/cart.png?20010" width= "50" height= "40"/>
+          <span>Cart {cart.cartItems.length}</span>
           </Link>
         </div>
       )}
@@ -45,6 +45,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
+    cart: state.cart
   };
 };
 
