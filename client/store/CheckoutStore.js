@@ -11,7 +11,12 @@ export const _deleteProduct = (product) => ({
   product,
 });
 
-export const addProduct = (product, qty) => {
+export const _addProduct = (product) => ({
+  type: ADD_PRODUCT,
+  payload: product,
+});
+
+export const addProduct = (product) => {
   return async (dispatch) => {
     try{
       const cartItems = localStorage.getItem("cart")
@@ -20,7 +25,7 @@ export const addProduct = (product, qty) => {
 
       // const duplicates = cartItems.filter(cartItems.id === product.id);
       
-      // if(duplicates.length === 0){
+      // if(!duplicates.length === 0){
         const addProd = {
           ...product,
           qty: 1,
@@ -31,10 +36,7 @@ export const addProduct = (product, qty) => {
         //add cart to redux
         localStorage.setItem("cart", JSON.stringify(cartItems));
   
-        dispatch({
-          type: ADD_PRODUCT,
-          payload: cartItems,
-        });
+        dispatch(_addProduct(cartItems));
 
       // }
     }catch (error) {
