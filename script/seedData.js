@@ -50,6 +50,16 @@ for (let i = 1; i <= 150; i++) {
 		'wine',
 	]);
 	let image = faker.random.arrayElement(assignLiquorTypes(alcoholType));
+
+	products.push({
+		name,
+		ABV,
+		stockAmount,
+		price,
+		description,
+		alcoholType,
+		image
+	})
 }
 
 let users = [];

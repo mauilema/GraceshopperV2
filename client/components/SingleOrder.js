@@ -32,9 +32,7 @@ export default function SingleOrder(props) {
 								<tr key={index}>
 									<td>{item.name}</td>
 									<td>${item.price}.00</td>
-									<td>
-										{order.fulfilled === true ? 'Fulfilled' : 'Unfulfilled'}
-									</td>
+									<td>{order.fulfilled === true ? 'Fulfilled' : 'Unfulfilled'}</td>
 								</tr>
 							);
 						})
