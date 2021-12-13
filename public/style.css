@@ -27,3 +27,95 @@ form div {
   padding: 15px;
   text-align: center;
 }
+
+.Header {
+  margin: auto;
+  width: 90%;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Heading {
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif; /*not sure which font yet*/
+  font-weight: 700;
+  color: grey;
+}
+
+hr {
+  width: 66%;
+  float: right;
+  margin-right: 5%;
+}
+
+.checkout {
+  float: right;
+  margin-right: 5%;
+  width: 28%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Subtotal {
+  font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  color: blue;
+}
+
+.numItems {
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 500;
+  color: green;
+  line-height: 10px;
+}
+
+.total-amount {
+  font-size: 36px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 900;
+  color: #e44c4c;
+}
+
+/*--------------------------------------------------*/
+.product-image {
+  float: left;
+  width: 20%;
+}
+.product-details {
+  float: left;
+  width: 37%;
+}
+.product-price {
+  float: left;
+  width: 12%;
+}
+.product-quantity {
+  float: left;
+  width: 10%;
+}
+.product-removal {
+  float: left;
+  width: 9%;
+}
+.product-line-price {
+  float: left;
+  width: 12%;
+  text-align: right;
+}
+
+.remove-product {
+  border: 0;
+  padding: 4px 8px;
+  background-color: #c66;
+  color: #fff;
+  font-family: "font-bold";
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.remove-product:hover {
+  background-color: #a44;
+}

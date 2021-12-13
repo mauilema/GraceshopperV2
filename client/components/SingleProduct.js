@@ -4,12 +4,12 @@ import { getSingleProduct } from "../store/singleProduct";
 import { addProduct } from "../store/CheckoutStore";
 
 export class SingleProduct extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      qty: 1,
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     qty: 1,
+  //   };
+  // }
   componentDidMount() {
     this.props.getSingleProduct(this.props.match.params.productId);
   }
@@ -34,14 +34,7 @@ export class SingleProduct extends React.Component {
                 <h1>Out of stock</h1>
               )}
             </div>
-            <select value={this.state.qty} onChange={this.handleChange}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <button onClick={() => {addToCart(singleProduct, this.state.qty);}}>
+            <button onClick={() => {addToCart(singleProduct)}}>
               <h1>add to cart</h1>
             </button>
           </div>
