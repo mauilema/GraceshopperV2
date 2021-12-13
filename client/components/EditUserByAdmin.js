@@ -16,17 +16,9 @@ class EditUser extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.handleInputOnClick = this.handleInputOnClick.bind(this)
-        // this.handleNameInputOnClick = this.handleNameInputOnClick.bind(this)
 
     }
 
-    // handleInputOnClick () {
-    //     this.setState({fuelLevel: ''})
-    // }
-    // handleNameInputOnClick () {
-    //     this.setState({name: ''})
-    // }
     componentDidUpdate (prevProps) {
         if (prevProps.user.id !== this.props.user.id) {
             this.setState({
@@ -51,6 +43,15 @@ class EditUser extends React.Component {
     handleSubmit (event) {
         event.preventDefault()
         this.props.updateUser({...this.props.user, ...this.state})
+        this.setState({
+            username: '',
+            password: '',
+            fullName: '',
+            email: '',
+            address: '',
+            dob: '',
+            isAdmin: ''
+        })
     }
 
     render () {
