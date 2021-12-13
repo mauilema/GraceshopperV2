@@ -22,7 +22,7 @@ export class Checkout extends Component {
   }
 
   render() {
-    const cartItems = this.props.cart.cartItems;
+    const cartItems = this.props.guestCart.cartItems;
 
     let totalAmount = 0;
     let itemAmount = 0;
@@ -97,7 +97,7 @@ export class Checkout extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart,
+    guestCart: state.guestCart,
   };
 };
 
