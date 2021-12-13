@@ -87,8 +87,8 @@ class AddUserByAdminForm extends React.Component {
     }
  }
 
-const mapDispatchToProps = (dispatch, { history }) => ({
-         addUser: (user) => dispatch(addUser(user, history))
+const mapDispatchToProps = (dispatch) => ({
+         addUser: (user) => dispatch(addUser(user))
 })
 
 

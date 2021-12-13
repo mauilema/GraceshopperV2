@@ -49,13 +49,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, {history}) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getUsers: () => {
       dispatch(fetchUsers());
     },
     deleteUser: (user) => {
-      dispatch(deleteUser(user, history))
+      dispatch(deleteUser(user))
     }
   };
 };

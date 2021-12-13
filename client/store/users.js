@@ -44,7 +44,7 @@ export const fetchUsers = () => {
     }
 }
 
-export const addUser = (user, history) => {
+export const addUser = (user) => {
     return async (dispatch) => {
       try {
       const token = window.localStorage.getItem('token')
@@ -54,15 +54,13 @@ export const addUser = (user, history) => {
           }
       })
       dispatch(_addUser(added))
-      history.push('/users')
-      //history.push('/users/admin') ?
       } catch (error) {
         console.log(error)
       }
     }
   }
 
-export const deleteUser = (id, history) => {
+export const deleteUser = (id) => {
     return async (dispatch) => {
         try {
         const token = window.localStorage.getItem('token')    
@@ -72,7 +70,6 @@ export const deleteUser = (id, history) => {
             }
         })
         dispatch(_deleteUser(user))
-        history.gotBack()
         } catch (error) {
             console.log(error)
         }
