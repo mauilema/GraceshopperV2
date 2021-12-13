@@ -38,3 +38,17 @@ form div {
   margin: auto;
   width: 50%
 }
+
+.delete-button {
+  background-color: rgb(202, 38, 38);
+  margin: 10px;
+  color: beige;
+}
+
+.delete-button:hover {
+  background-color: rgb(202, 38, 38);
+  filter: brightness(125%);
+  margin: 10px;
+  color: beige;
+}
+

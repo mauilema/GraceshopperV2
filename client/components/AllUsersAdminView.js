@@ -30,8 +30,8 @@ class AllUsersAdminView extends React.Component {
                     <h2>address: {user.address}</h2>
                     <h2>dob: {user.dob}</h2>
                     {/* </Link> */}
-                      <div>
-                          <button type="submit" onClick={() => {this.props.deleteUser(user.id)}}>X</button>
+                      <div className="delete-button-div">
+                          <button className="delete-button" type="submit" onClick={() => {this.props.deleteUser(user.id)}}>DELETE USER || X</button>
                       </div>
                 </div>
                 ))
