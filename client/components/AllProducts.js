@@ -11,7 +11,6 @@ class AllProducts extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { products, addToCart } = this.props;
     return (
       <div>
@@ -24,7 +23,7 @@ class AllProducts extends React.Component {
               <div className="single-product-border" key={product.id}>
                 <Link to={`/products/${product.id}`}>
                   <h2>{product.name}</h2>
-                  <img src={product.image} />
+                  <img className="products-image-size" src={product.image} />
                   <h3>${product.price}</h3>
                 </Link>
                 <button
