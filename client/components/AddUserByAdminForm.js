@@ -48,37 +48,38 @@ class AddUserByAdminForm extends React.Component {
 
         return (
                 <div className="add-user-form" >
-                    <button type="submit" onClick={() => this.setState({showForm: true})} >All New User</button>
+                    <label htmlFor="add-new-user-button"><h1>View form with button below:</h1></label>
+                    <button className="add-new-user-button" type="submit" onClick={() => this.setState({showForm: true})} >Add New User</button>
 
                     {this.state.showForm && (
                         <form onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="username">Add UserName: </label>
-                            <input name= "username" onChange={handleChange} value={username} />
+                            <div>
+                                <label htmlFor="username">Add UserName: </label>
+                                <input name= "username" onChange={handleChange} value={username} />
 
-                            <label htmlFor="password">Add Password: </label>
-                            <input name= "password" onChange={handleChange} value={password} type="password"/>
+                                <label htmlFor="password">Add Password: </label>
+                                <input name= "password" onChange={handleChange} value={password} type="password"/>
 
-                            <label htmlFor="fullName">Add Full Name: </label>
-                            <input name= "fullName" onChange={handleChange} value={fullName} />
+                                <label htmlFor="fullName">Add Full Name: </label>
+                                <input name= "fullName" onChange={handleChange} value={fullName} />
 
-                            <label htmlFor="email">Add Email: </label>
-                            <input name= "email" onChange={handleChange} value={email} />
+                                <label htmlFor="email">Add Email: </label>
+                                <input name= "email" onChange={handleChange} value={email} />
 
-                            <label htmlFor="address">Add Address: </label>
-                            <input name= "address" onChange={handleChange} value={address} />
+                                <label htmlFor="address">Add Address: </label>
+                                <input name= "address" onChange={handleChange} value={address} />
 
-                            <label htmlFor="dob">Add DOB: </label>
-                            <input name= "dob" onChange={handleChange} value={dob} type="date" />
-                        </div>
-                        <div>
-                            <label htmlFor="isAdmin">Is Admin? </label>
-                            <input name= "isAdmin" onChange={handleChange} value={isAdmin} />
-                        </div>
-                        <div>
-                            <button type="submit">Submit</button>
-                        </div>
-                    </form>
+                                <label htmlFor="dob">Add DOB: </label>
+                                <input name= "dob" onChange={handleChange} value={dob} type="date" />
+                            </div>
+                            <div>
+                                <label htmlFor="isAdmin">Is Admin? </label>
+                                <input name= "isAdmin" onChange={handleChange} value={isAdmin} />
+                            </div>
+                            <div>
+                                <button type="submit">Submit</button>
+                            </div>
+                        </form>
                     )}
                     
                 </div>
@@ -87,8 +88,8 @@ class AddUserByAdminForm extends React.Component {
     }
  }
 
-const mapDispatchToProps = (dispatch, { history }) => ({
-         addUser: (user) => dispatch(addUser(user, history))
+const mapDispatchToProps = (dispatch) => ({
+         addUser: (user) => dispatch(addUser(user))
 })
 
 

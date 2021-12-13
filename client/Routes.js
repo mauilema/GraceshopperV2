@@ -9,6 +9,7 @@ import Home from './components/Home';
 import SingleProduct from './components/SingleProduct';
 import { me } from './store';
 import AllUsersAdminView from './components/AllUsersAdminView';
+import SingleUser from './components/SingleUser';
 
 /**
  * COMPONENT
@@ -27,13 +28,14 @@ class Routes extends Component {
           <Route exact path="/products" component={AllProducts} />
           <Route path="/cart" component={Checkout} />
           <Route path="/products/:productId" component={SingleProduct} />
-
+          <Route path="/users/:userId" component={SingleUser} />
+          
           {isLoggedIn ? (
             <Switch>
               <Route path="/home" component={Home} />
               {isLoggedIn && isAdmin && (
                 <Switch>
-                  <Route path="/users" component={AllUsersAdminView} />
+                  <Route exact path="/users" component={AllUsersAdminView} />
                 </Switch>
               )}
               <Redirect to="/home" />
