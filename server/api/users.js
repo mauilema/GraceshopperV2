@@ -63,11 +63,23 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
-//admin post request with verifyAdmin middleware
+//admin post/create request with verifyAdmin middleware
 
 router.post('/', verifyAdmin , async (req, res, next) => {
   try {
   res.status(201).send(await User.create(req.body))
+  } catch (error) {
+    next (error)
+  }
+} )
+
+//admin put/update request with verifyAdmin middleware
+
+router.put('/:userId', verifyAdmin, async (req, res, next) => {
+  try {
+  const id = req.params.userId
+  const userToUpdate = await User.findByPk(id)
+  res.send(await userToUpdate.update(req.body))
   } catch (error) {
     next (error)
   }
