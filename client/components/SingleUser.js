@@ -34,35 +34,35 @@ class SingleUser extends React.Component {
         // const { handleRemoveRelation } = this
         return (
             <div>
-                <h1>User Info</h1>
+                <h1>User Info:</h1>
+                <div className="single-user-info">
                     <div>
-                        <div>
-                            <h2>fullName: {user.fullName}</h2>
-                        </div>
-                        <div>
-                            <h2>isAdmin: {String(user.isAdmin)}</h2>
-                            <h2>username: {user.username}</h2>
-                            <h2>email: {user.email}</h2>
-                            <h2>address: {user.address}</h2>
-                            <h2>dob: {user.dob}</h2>
-                        </div>
+                        <h2>fullName: {user.fullName}</h2>
                     </div>
-                    {/* <div>
-                        {this.state.renderEditRobotForm && <EditRobot robot={robot} />}
-                        <button onClick={() => this.handleEditButtonClick()} className="edit-button" type="submit">Edit This Robot</button>
-                    </div> */}
-                    {/* <div>
-                        <h3>List of Assigned Projects:</h3>
-                        {(robot.projects === undefined || robot.projects.length < 1) ? <h1>No Assigned Projects at the moment.</h1> :
-                        <ul>{robot.projects.map(project =>
-                        <li key={project.id}><Link to={`/projects/${project.id}`}>{project.title}</Link><button type="submit" onClick={() => handleRemoveRelation(robot.id, project.id)}>Unassign Project</button></li>)}
-                        </ul>}
-                    </div> */}
                     <div>
-                        <Link to="/users">
-                            <p>Back to All Users</p>
-                        </Link>
+                        <h2>isAdmin: {String(user.isAdmin)}</h2>
+                        <h2>username: {user.username}</h2>
+                        <h2>email: {user.email}</h2>
+                        <h2>address: {user.address}</h2>
+                        <h2>dob: {user.dob}</h2>
                     </div>
+                </div>
+                {/* <div>
+                    {this.state.renderEditRobotForm && <EditRobot robot={robot} />}
+                    <button onClick={() => this.handleEditButtonClick()} className="edit-button" type="submit">Edit This Robot</button>
+                </div> */}
+                {/* <div>
+                    <h3>List of Assigned Projects:</h3>
+                    {(robot.projects === undefined || robot.projects.length < 1) ? <h1>No Assigned Projects at the moment.</h1> :
+                    <ul>{robot.projects.map(project =>
+                    <li key={project.id}><Link to={`/projects/${project.id}`}>{project.title}</Link><button type="submit" onClick={() => handleRemoveRelation(robot.id, project.id)}>Unassign Project</button></li>)}
+                    </ul>}
+                </div> */}
+                <div>
+                    <Link to="/users">
+                        <p>Back to All Users</p>
+                    </Link>
+                </div>
             </div>
         )
     }

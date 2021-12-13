@@ -48,7 +48,8 @@ class AddUserByAdminForm extends React.Component {
 
         return (
                 <div className="add-user-form" >
-                    <button type="submit" onClick={() => this.setState({showForm: true})} >All New User</button>
+                    <label htmlFor="add-new-user-button"><h1>View form with button below:</h1></label>
+                    <button className="add-new-user-button" type="submit" onClick={() => this.setState({showForm: true})} >Add New User</button>
 
                     {this.state.showForm && (
                         <form onSubmit={handleSubmit}>
