@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleProduct } from '../store/singleProduct';
+import { addProduct } from "../store/CheckoutStore";
 
 export class SingleProduct extends React.Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     qty: 1,
+  //   };
+  // }
   componentDidMount() {
     this.props.getSingleProduct(this.props.match.params.productId);
   }
 
-  //add a method that will create a button "add to cart"
-  //for this product, i want to push it to local stoage
-  //..lev localstorage doc
+
   render() {
-    const { singleProduct } = this.props;
+    const { singleProduct, addToCart  } = this.props;
     return (
       <div>
         <div>
@@ -22,6 +27,16 @@ export class SingleProduct extends React.Component {
             <p>Description: {singleProduct.description}</p>
             <h3>ABV: {singleProduct.ABV}%</h3>
             <h3>Category: {singleProduct.alcoholType}</h3>
+            <div>
+              {singleProduct.stockAmount > 0 ? (
+                <h1>In stock</h1>
+              ) : (
+                <h1>Out of stock</h1>
+              )}
+            </div>
+            <button onClick={() => {addToCart(singleProduct)}}>
+              <h1>add to cart</h1>
+            </button>
           </div>
         </div>
       </div>
@@ -29,12 +44,10 @@ export class SingleProduct extends React.Component {
   }
 }
 
-
-
 const mapState = (state) => {
 	return {
 		singleProduct: state.singleProductReducer,
-		cart: state.cart,
+		cart: state.guestCart,
 		currentUser: state.currentUser,
 	};
 	//have to return state as value to a key
@@ -43,6 +56,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
 	return {
 		getSingleProduct: (productId) => dispatch(getSingleProduct(productId)),
+    addToCart: (product) => dispatch(addProduct(product)),
 	};
 };
 

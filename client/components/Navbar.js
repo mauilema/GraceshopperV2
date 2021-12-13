@@ -1,10 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { logout } from '../store';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout } from "../store";
 import AllUsersAdminView from './AllUsersAdminView';
 
-const Navbar = ({ handleClick, isLoggedIn, isAdmin, currentUser }) => (
+
+const Navbar = ({ handleClick, isLoggedIn, isAdmin, currentUser, cart }) => (
 	<div>
 		<h1>Fullstack Spirits</h1>
 		<nav>
@@ -18,13 +19,8 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin, currentUser }) => (
 					</a>
 					<Link to="/products">Shop All Liquors</Link>
 					<Link to={`/cart/${currentUser.id}`}>
-						<img
-							src={
-								'https://www.vhv.rs/dpng/d/59-591610_shopping-basket-icon-png-transparent-png.png'
-							}
-							width="50"
-							height="40"
-						/>
+						 <img src= "https://cdn.shopify.com/s/files/1/0139/6552/5046/t/1/assets/cart.png?20010" width= "50" height= "40"/>
+          {/* <span>Cart {cart.cartItems.length}</span>*/}
 					</Link>
 				</div>
 			) : (
@@ -33,15 +29,10 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin, currentUser }) => (
 					<Link to="/login"> Login </Link>
 					<Link to="/signup"> Sign Up </Link>
 					<Link to="/products">Shop All Liquors</Link>
-					<Link to="/cart">
-						<img
-							src={
-								'https://www.vhv.rs/dpng/d/59-591610_shopping-basket-icon-png-transparent-png.png'
-							}
-							width="50"
-							height="40"
-						/>
-					</Link>
+					<Link to="/cart"> 
+          <img src= "https://cdn.shopify.com/s/files/1/0139/6552/5046/t/1/assets/cart.png?20010" width= "50" height= "40"/>
+          <span>Cart {cart.cartItems.length}</span>
+          </Link>
 				</div>
 			)}
 		</nav>
@@ -57,6 +48,7 @@ const mapState = (state) => {
 		isLoggedIn: !!state.auth.id,
 		isAdmin: !!state.auth.isAdmin,
 		currentUser: state.currentUser,
+    cart: state.cart
 	};
 };
 

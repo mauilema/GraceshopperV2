@@ -29,6 +29,7 @@ form div {
   text-align: center;
 }
 
+
 .products-image-size {
   height: 500px;
   width: 500px
@@ -81,5 +82,4 @@ form div {
   filter: brightness(125%);
   margin: 10px;
   color: beige;
-}
-
+  }
