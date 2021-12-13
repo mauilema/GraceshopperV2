@@ -23,12 +23,14 @@ export class Checkout extends Component {
 
   render() {
     const cartItems = this.props.cart.cartItems;
+
     let totalAmount = 0;
+    let itemAmount = 0;
     cartItems.forEach((item) => {
       totalAmount += item.price * item.qty;
-
+      itemAmount += Number(item.qty);
     });
-    console.log(totalAmount);
+    
     return (
       <div>
         {!cartItems.length ? (
@@ -76,10 +78,10 @@ export class Checkout extends Component {
                 <div>
                   <div className="numItems">
                     <p>
-                      {cartItems.length < 2 ? (
-                        <h4>{cartItems.length} item total</h4>
+                      {itemAmount < 2 ? (
+                        <h4>{itemAmount} item total</h4>
                       ) : (
-                        <h4>{cartItems.length} items total</h4>
+                        <h4>{itemAmount} items total</h4>
                       )}
                     </p>
                   </div>
