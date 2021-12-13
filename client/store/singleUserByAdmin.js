@@ -2,7 +2,7 @@ import axios from 'axios'
 
 //action types
 const SET_USER = 'SET_USER'
-// const UPDATE_USER = 'UPDATE_USER'
+const UPDATE_USER = 'UPDATE_USER'
 
 //action creators
 const setUser = (user) => {
@@ -12,12 +12,12 @@ const setUser = (user) => {
     }
 }
 
-// export const _updateRobot = (robot) => {
-//     return {
-//       type: UPDATE_USER,
-//       robot
-//     }
-//   }
+const _updateUser = (user) => {
+    return {
+      type: UPDATE_USER,
+      user
+    }
+  }
 
 //thunk creators
 export const fetchUser = (userId) => {
@@ -31,21 +31,26 @@ export const fetchUser = (userId) => {
         })
         dispatch(setUser(data))
         } catch (error) {
-            console.log(error)
+            console.log(error) 
         }
     }
 }
 
-// export const updateRobot = (robot) => {
-//     return async (dispatch) => {
-//       try {
-//       const { data: updated } = await axios.put(`/api/robots/${robot.id}`, robot)
-//       dispatch(_updateRobot(updated))
-//       } catch (error) {
-//         console.log(error)
-//     }
-//     }
-//   }
+export const updateUser = (user) => {
+    return async (dispatch) => {
+      try {
+      const token = window.localStorage.getItem('token') 
+      const { data: updated } = await axios.put(`/api/users/${user.id}`, user, {
+        headers: {
+            authorization: token
+        }
+      })
+      dispatch(_updateUser(updated))
+      } catch (error) {
+        console.log(error)
+    }
+    }
+  }
 
 // export const removeRelation = (robotId, projectId) => {
 //     return async (dispatch) => {
@@ -66,8 +71,8 @@ export default function singleUserReducer (state = initialState, action) {
     switch (action.type) {
         case SET_USER:
             return action.user
-        // case UPDATE_USER:
-        //     return action.robot
+        case UPDATE_USER:
+            return action.user
         default:
             return state
     }
