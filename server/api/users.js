@@ -27,6 +27,22 @@ router.get('/admin', verifyAdmin , async (req, res, next) => {
   }
 });
 
+//get user by id, only available to admin
+
+router.get('/:userId', verifyAdmin, async (req, res, next) => {
+  try {
+  const id = req.params.userId
+  const singleUser = await User.findByPk(id)
+  if (!singleUser) {
+      res.sendStatus(404)
+      return
+  }
+  res.send(singleUser)
+  } catch (error) {
+      next (error)
+  }
+})
+
 // get single user with associated order/s
 router.get('/:userId', async (req, res, next) => {
   try {
