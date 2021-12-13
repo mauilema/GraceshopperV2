@@ -49,7 +49,7 @@ router.get('/:userId', async (req, res, next) => {
 
 //admin post request with verifyAdmin middleware
 
-router.post('/', verifyAdmin ,async (req, res, next) => {
+router.post('/', verifyAdmin , async (req, res, next) => {
   try {
   res.status(201).send(await User.create(req.body))
   } catch (error) {
@@ -57,14 +57,18 @@ router.post('/', verifyAdmin ,async (req, res, next) => {
   }
 } )
 
+//admin delete request with verifyAdmin middleware
 
-// router.post('/', async (req, res, next) => {
-//     try {
-//     res.status(201).send(await User.create(req.body))
-//     } catch (error) {
-//       next (error)
-//     }
-//   } )
+router.delete('/:userId', verifyAdmin, async (req, res, next) => {
+    try {
+    const id = req.params.userId
+    const userToDelete = await User.findByPk(id)
+    await userToDelete.destroy()
+    res.send(userToDelete)
+  } catch (error) {
+      next (error)
+    }
+  } )
 
 
 module.exports = router

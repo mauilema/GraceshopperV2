@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../store/users';
+import { deleteUser, fetchUsers } from '../store/users';
 import { Route } from 'react-router-dom';
 import AddUserByAdminForm from './AddUserByAdminForm';
 
@@ -30,6 +30,9 @@ class AllUsersAdminView extends React.Component {
                     <h2>address: {user.address}</h2>
                     <h2>dob: {user.dob}</h2>
                     {/* </Link> */}
+                      <div>
+                          <button type="submit" onClick={() => {this.props.deleteUser(user.id)}}>X</button>
+                      </div>
                 </div>
                 ))
             )}
@@ -46,11 +49,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, {history}) => {
   return {
     getUsers: () => {
       dispatch(fetchUsers());
     },
+    deleteUser: (user) => {
+      dispatch(deleteUser(user, history))
+    }
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AllUsersAdminView);
