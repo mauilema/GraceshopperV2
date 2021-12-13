@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deleteProduct } from "../store/CheckoutStore";
+import { _deleteFromCart } from "../store/CheckoutStore";
 import { _addProduct } from "../store/CheckoutStore";
 
 export class Checkout extends Component {
@@ -23,6 +23,7 @@ export class Checkout extends Component {
 
   render() {
     const cartItems = this.props.cart.cartItems;
+    const {deleteProduct} = this.props
 
     let totalAmount = 0;
     let itemAmount = 0;
@@ -67,7 +68,8 @@ export class Checkout extends Component {
                   />
                 </div>
                 <div className="product-removal">
-                  <button className="remove-product">Remove</button>
+                  <button className="remove-product"
+                  onClick={()=>{deleteProduct(item)}}>Remove</button>
                 </div>
               </div>
             ))}
@@ -104,7 +106,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, { history }) => {
   return {
     addToCart: (product) => dispatch(_addProduct(product)),
-    deleteProduct: (id) => dispatch(deleteProduct(id, history)),
+    deleteProduct: (id) => dispatch(_deleteFromCart(id, history)),
   };
 };
 

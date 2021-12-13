@@ -3,10 +3,10 @@ import axios from "axios";
 //action type
 // export const SET_PRODUCTS_IN_CART = "SET_PRODUCTS_IN_CART";
 export const ADD_PRODUCT = "ADD_PRODUCT";
-export const DELETE_PRODUCT = "DELETE_PRODUCT";
+export const DELETE_FROM_CART = "DELETE_FROM_CART";
 
-export const _deleteProduct = (product) => ({
-  type: DELETE_PRODUCT,
+export const _deleteFromCart = (product) => ({
+  type: DELETE_FROM_CART,
   product,
 });
 
@@ -41,11 +41,10 @@ export const addProduct = (product) => {
       } else {
         const addProd = {
           ...product,
-          qty: 2,
+          qty: 1,
         };
 
-        cartItems.push(addProd);
-
+          console.log('this is the if(===): ', cartItems.id, product.id)
         //add cart to redux
         localStorage.setItem("cart", JSON.stringify(cartItems));
 
@@ -60,15 +59,15 @@ export const addProduct = (product) => {
   };
 };
 
-export const deleteProduct = (product) => {
-  return async (dispatch, getState) => {
+export const deleteFromCart = (product) => {
+  return async (dispatch) => {
     try {
-      dispatch({
-        type: DELETE_PRODUCT,
-        payload: product,
-      });
+      const cartItems = localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
 
-      localStorage.setItem("cart", JSON.stringify(getState().cart.cartItems));
+      // const updatedCart = cartItems.filter(items)
+
     } catch (error) {
       console.log(
         "there is an error inside of our deleteProducts thunk store/checkoutStore",
@@ -95,7 +94,7 @@ export default function checkoutStoreReducer(state = initialState, action) {
       return {
         cartItems: [...action.payload],
       };
-    case DELETE_PRODUCT:
+    case DELETE_FROM_CART:
       return {
         ...state,
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
