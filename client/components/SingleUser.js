@@ -31,7 +31,6 @@ class SingleUser extends React.Component {
 
     render () {
         const { user }= this.props
-        // const { handleRemoveRelation } = this
         return (
             <div className="single-user-info-div">
                 <h1>User Info:</h1>
@@ -51,13 +50,6 @@ class SingleUser extends React.Component {
                     {this.state.renderEditUserForm && <EditUserByAdmin user={user} />}
                     <button onClick={() => this.handleEditButtonClick()} className="edit-button" type="submit">Edit This User</button>
                 </div>
-                {/* <div>
-                    <h3>List of Assigned Projects:</h3>
-                    {(robot.projects === undefined || robot.projects.length < 1) ? <h1>No Assigned Projects at the moment.</h1> :
-                    <ul>{robot.projects.map(project =>
-                    <li key={project.id}><Link to={`/projects/${project.id}`}>{project.title}</Link><button type="submit" onClick={() => handleRemoveRelation(robot.id, project.id)}>Unassign Project</button></li>)}
-                    </ul>}
-                </div> */}
                 <div className="single-user-info">
                     <Link to="/users">
                         <p>Back to All Users</p>
