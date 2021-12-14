@@ -13,12 +13,7 @@ class SingleUser extends React.Component {
             renderEditUserForm: false
         }
         this.handleEditButtonClick = this.handleEditButtonClick.bind(this)
-        // this.handleRemoveRelation = this.handleRemoveRelation.bind(this)
     }
-
-    // // handleRemoveRelation (robotId, projectId) {
-    // //     this.props.removeRelation(robotId, projectId)
-    // // }
 
     handleEditButtonClick () {
         this.setState({
@@ -31,6 +26,7 @@ class SingleUser extends React.Component {
 
     render () {
         const { user }= this.props
+        console.log(' this.props from component did mount single user ', this.props)
         return (
             <div className="single-user-info-div">
                 <h1>User Info:</h1>
@@ -48,9 +44,35 @@ class SingleUser extends React.Component {
                 </div>
                 <div>
                     {this.state.renderEditUserForm && <EditUserByAdmin user={user} />}
-                    <button onClick={() => this.handleEditButtonClick()} className="edit-button" type="submit">Edit This User</button>
+                    <button id='edit-user-restricted-button' onClick={() => this.handleEditButtonClick()} className="edit-button" type="submit">Edit This User</button>
                 </div>
-                <div className="single-user-info">
+                <div>
+                    <h3>All User's Orders:</h3>
+                    {(user.orders === undefined || user.orders.length < 1) ? <h1>This User Has No Orders :(</h1> :
+                    <div>{user.orders.map(order =>
+                    <div key={order.id} className="single-user-info-div">
+                        <h2>Order Id: {order.id}</h2>
+                        <h2>Fulfilled: {String(order.fulfilled)}</h2>
+
+                        {(order.products === undefined || order.products.length < 1) ? <h1>This Order Has No Products :(</h1> :
+                        <div>{order.products.map(product =>
+                        <div key={product.id}>
+                        <h2>Product Id: {product.id}</h2>
+                        <h2>Name: {product.name}</h2>
+                        <h2>ABV: {product.ABV}%</h2>
+                        <h2>Amount in Stock: {product.stockAmount}</h2>
+                        <h2>Price: {product.price}</h2>
+                        <h2>Description: {product.description}</h2>
+                        <h2>Category: {product.alcoholType}</h2>
+                        </div>
+                        )}
+                        </div>}
+
+                    </div>
+                    )}
+                    </div>}
+                </div>
+                <div>
                     <Link to="/users">
                         <p>Back to All Users</p>
                     </Link>
@@ -71,7 +93,6 @@ const mapDispatchToProps = (dispatch) => {
         loadSingleUser: (userId) => {
             dispatch(fetchUser(userId))
         },
-        // removeRelation: (robotId, projectId) => dispatch(removeRelation(robotId, projectId))
     }
 }
 

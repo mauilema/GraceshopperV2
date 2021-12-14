@@ -106,3 +106,20 @@ form div {
     margin: auto;
     width: 50%;
   }
+
+  #edit-user-restricted-button {
+    background-color: rgb(179, 51, 19);
+    margin: auto;
+    width: 50%;
+    margin: 30px;
+    color: beige;
+  }
+  
+  #edit-user-restricted-button:hover {
+    background-color: rgb(179, 51, 19);
+    filter: brightness(125%);
+    margin: auto;
+    width: 50%;
+    margin: 30px;
+    color: beige;
+    }
