@@ -83,3 +83,16 @@ form div {
   margin: 10px;
   color: beige;
   }
+
+  .view-more-product-info-button {
+    background-color: rgb(19, 88, 179);
+    margin: 10px;
+    color: beige;
+  }
+  
+  .view-more-product-info-button:hover {
+    background-color: rgb(19, 88, 179);
+    filter: brightness(125%);
+    margin: 10px;
+    color: beige;
+  }
