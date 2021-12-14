@@ -100,3 +100,9 @@ form div {
   .back-to-all-products-link {
     margin-top: 40px;
   }
+
+  .single-user-info-div {
+    border: 2px solid rgb(218, 214, 214);
+    margin: auto;
+    width: 50%;
+  }

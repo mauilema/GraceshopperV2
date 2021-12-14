@@ -33,9 +33,9 @@ class SingleUser extends React.Component {
         const { user }= this.props
         // const { handleRemoveRelation } = this
         return (
-            <div>
+            <div className="single-user-info-div">
                 <h1>User Info:</h1>
-                <div className="single-user-info">
+                <div className="single-user-info-div">
                     <div>
                         <h2>fullName: {user.fullName}</h2>
                     </div>
@@ -58,7 +58,7 @@ class SingleUser extends React.Component {
                     <li key={project.id}><Link to={`/projects/${project.id}`}>{project.title}</Link><button type="submit" onClick={() => handleRemoveRelation(robot.id, project.id)}>Unassign Project</button></li>)}
                     </ul>}
                 </div> */}
-                <div>
+                <div className="single-user-info">
                     <Link to="/users">
                         <p>Back to All Users</p>
                     </Link>

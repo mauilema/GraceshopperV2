@@ -15,7 +15,7 @@ async function seed() {
 	await db.sync({ force: true }); // clears db and matches models to tables
 	console.log('db synced!');
 
-	 const admins = [{
+	const admins = [{
     username: 'JoseAdmin',
     fullName: 'Jose Admin',
     isAdmin: 'true',
