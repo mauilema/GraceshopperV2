@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleProduct } from '../store/singleProduct';
 import { addProduct } from "../store/CheckoutStore";
+import { Link } from 'react-router-dom';
 
 export class SingleProduct extends React.Component {
   // constructor() {
@@ -34,9 +35,16 @@ export class SingleProduct extends React.Component {
                 <h1>Out of stock</h1>
               )}
             </div>
+            <div>
             <button onClick={() => {addToCart(singleProduct)}}>
               <h1>add to cart</h1>
             </button>
+            </div>
+            <div className="back-to-all-products-link" >
+            <Link to={'/products'}>
+              Back to All Products
+            </Link>
+            </div>
           </div>
         </div>
       </div>
