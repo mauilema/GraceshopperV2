@@ -12,8 +12,8 @@ router.get("/", async (req, res, next) => {
   try {
     const AllProducts = await Product.findAll();
     res.send(AllProducts);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 });
 
@@ -25,9 +25,13 @@ router.get("/:productId", async (req, res, next) => {
       //include: { Cart, Order },
       //Getting an error stating that Cart & Order are not defined
     });
+    if (!product) {
+      res.sendStatus(404)
+      return
+    }
     res.send(product);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 });
 

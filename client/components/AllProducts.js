@@ -24,8 +24,12 @@ class AllProducts extends React.Component {
                 <Link to={`/products/${product.id}`}>
                   <h2>{product.name}</h2>
                   <img className="products-image-size" src={product.image} />
+                  <div>
+                  <button className="view-more-product-info-button">Click for More Info</button>
+                  </div>
                   <h3>${product.price}</h3>
                 </Link>
+                <div>
                 <button
                   onClick={() => {
                     addToCart(product, product.qty);
@@ -33,6 +37,7 @@ class AllProducts extends React.Component {
                 >
                   <h1>add to cart</h1>
                 </button>
+                </div>
               </div>
             ))
           )}

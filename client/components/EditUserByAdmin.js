@@ -58,7 +58,7 @@ class EditUser extends React.Component {
         const { username, password, fullName, email, address, dob, isAdmin } = this.state
         const { handleSubmit, handleChange, } = this
         return (
-                <div>
+                <div className="single-user-info">
                     <h3>Enter Changes Below Then Save Changes</h3>
                     <form onSubmit={handleSubmit}>
                         <div>
