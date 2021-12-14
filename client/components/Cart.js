@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deleteProduct } from "../store/CheckoutStore";
-import { _addProduct } from "../store/CheckoutStore";
+import { _addProduct, deleteFromCart } from "../store/CheckoutStore";
 
 export class Checkout extends Component {
   
@@ -23,14 +22,14 @@ export class Checkout extends Component {
 
   render() {
     const cartItems = this.props.guestCart.cartItems;
-
+    const { deleteProduct } = this.props;
     let totalAmount = 0;
     let itemAmount = 0;
     cartItems.forEach((item) => {
       totalAmount += item.price * item.qty;
       itemAmount += Number(item.qty);
     });
-    
+
     return (
       <div>
         {!cartItems.length ? (
@@ -49,7 +48,7 @@ export class Checkout extends Component {
               </div>
             </div>
             {cartItems.map((item) => (
-              <div className="product" key={item.id}>
+              <div key={item.id}>
                 <div className="product-image">
                   <img src={item.image} width="50px" height="50px" />
                 </div>
@@ -67,7 +66,12 @@ export class Checkout extends Component {
                   />
                 </div>
                 <div className="product-removal">
-                  <button className="remove-product">Remove</button>
+                  <button
+                    className="remove-product"
+                    onClick={() => {deleteProduct(item)}}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             ))}
@@ -101,10 +105,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, { history }) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (product) => dispatch(_addProduct(product)),
-    deleteProduct: (id) => dispatch(deleteProduct(id, history)),
+    deleteProduct: (product) => dispatch(deleteFromCart(product)),
   };
 };
 

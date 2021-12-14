@@ -19,11 +19,12 @@ class AllProducts extends React.Component {
           {products.length < 1 ? (
             <h1>We are completely out of stock :(</h1>
           ) : (
-            products.map((product) => (
+            <div className='allProducts'>
+            {products.map((product) => (
               <div className="single-product-border" key={product.id}>
                 <Link to={`/products/${product.id}`}>
                   <h2>{product.name}</h2>
-                  <img className="products-image-size" src={product.image} />
+                  <img className="products-image-size" src={product.image} height='50' width='50'/>
                   <div>
                   <button className="view-more-product-info-button">Click for More Info</button>
                   </div>
@@ -39,7 +40,8 @@ class AllProducts extends React.Component {
                 </button>
                 </div>
               </div>
-            ))
+            ))}
+            </div>
           )}
         </div>
       </div>
