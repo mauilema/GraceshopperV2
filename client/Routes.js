@@ -29,7 +29,6 @@ class Routes extends Component {
           <Route exact path="/products" component={AllProducts} />
           <Route exact path="/cart" component={GuestCart} />
           <Route path="/products/:productId" component={SingleProduct} />
-          <Route path="/users/:userId" component={SingleUser} />
           
           {isLoggedIn ? (
             <Switch>
@@ -37,6 +36,7 @@ class Routes extends Component {
             <Route exact path="/cart/:userId" component={UserCart} />
               {isLoggedIn && isAdmin && (
                 <Switch>
+                  <Route exact path="/users/:userId" component={SingleUser} />
                   <Route exact path="/users" component={AllUsersAdminView} />
                 </Switch>
               )}
