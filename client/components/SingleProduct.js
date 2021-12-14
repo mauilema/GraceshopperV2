@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import { getSingleProduct } from "../store/singleProduct";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getSingleProduct } from '../store/singleProduct';
 import { addProduct } from "../store/CheckoutStore";
 
 export class SingleProduct extends React.Component {
@@ -19,14 +19,14 @@ export class SingleProduct extends React.Component {
     const { singleProduct, addToCart  } = this.props;
     return (
       <div>
-        <h2>Single Product</h2>
         <div>
-          <div>
+          <div className="single-product-border">
             <h1>{singleProduct.name}</h1>
-            <img src={singleProduct.image} />
-            <h1>{singleProduct.abv}</h1>
-            <h1>Price:${singleProduct.price}</h1>
-            <h1>Description:{singleProduct.description}</h1>
+            <img className="products-image-size" src={singleProduct.image} />
+            <h1>Price: ${singleProduct.price}</h1>
+            <p>Description: {singleProduct.description}</p>
+            <h3>ABV: {singleProduct.ABV}%</h3>
+            <h3>Category: {singleProduct.alcoholType}</h3>
             <div>
               {singleProduct.stockAmount > 0 ? (
                 <h1>In stock</h1>
@@ -45,16 +45,19 @@ export class SingleProduct extends React.Component {
 }
 
 const mapState = (state) => {
-  return { singleProduct: state.singleProductReducer, 
-           cart: state.cart};
-  //have to return state as value to a key
+	return {
+		singleProduct: state.singleProductReducer,
+		cart: state.guestCart,
+		currentUser: state.currentUser,
+	};
+	//have to return state as value to a key
 };
 
 const mapDispatch = (dispatch) => {
-  return {
-    getSingleProduct: (productId) => dispatch(getSingleProduct(productId)),
+	return {
+		getSingleProduct: (productId) => dispatch(getSingleProduct(productId)),
     addToCart: (product) => dispatch(addProduct(product)),
-  };
+	};
 };
 
 export default connect(mapState, mapDispatch)(SingleProduct);

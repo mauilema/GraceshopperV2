@@ -21,101 +21,80 @@ form div {
 }
 
 .single-product-border {
-  border: 2px solid rgb(110, 108, 108);
+  /* border: 2px solid rgb(218, 214, 214);
+  margin: auto;
+  width: 75%;
+  padding: 15px;
+  margin-bottom: 5%;
+  text-align: center; */
+
+  flex-basis: 50px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.94);
+  margin: 20px 20px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.products-image-size {
+  height: 300px;
+  width: 300px
+}
+
+.add-user-form {
+  margin: auto;
+  width: 50%
+}
+
+.delete-button {
+  background-color: rgb(202, 38, 38);
+  margin: 10px;
+  color: beige;
+}
+
+.delete-button:hover {
+  background-color: rgb(202, 38, 38);
+  filter: brightness(125%);
+  margin: 10px;
+  color: beige;
+}
+
+.view-user-info-button {
+  background-color: rgb(19, 88, 179);
+  margin: 10px;
+  color: beige;
+}
+
+.view-user-info-button:hover {
+  background-color: rgb(19, 88, 179);
+  filter: brightness(125%);
+  margin: 10px;
+  color: beige;
+}
+
+.single-user-info {
   margin: auto;
   width: 50%;
-  padding: 15px;
-  text-align: center;
 }
 
-.Header {
-  margin: auto;
-  width: 90%;
-  height: 15%;
+.add-new-user-button {
+  background-color: rgb(24, 179, 19);
+  margin: 10px;
+  color: beige;
+}
+
+.add-new-user-button:hover {
+  background-color: rgb(24, 179, 19);
+  filter: brightness(125%);
+  margin: 10px;
+  color: beige;
+  }
+
+.allProducts{
+  flex-basis: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.Heading {
-  font-size: 20px;
-  font-family: "Times New Roman", Times, serif; /*not sure which font yet*/
-  font-weight: 700;
-  color: grey;
-}
-
-hr {
-  width: 66%;
-  float: right;
-  margin-right: 5%;
-}
-
-.checkout {
-  float: right;
-  margin-right: 5%;
-  width: 28%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.Subtotal {
-  font-size: 22px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 700;
-  color: blue;
-}
-
-.numItems {
-  font-size: 16px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 500;
-  color: green;
-  line-height: 10px;
-}
-
-.total-amount {
-  font-size: 36px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 900;
-  color: #e44c4c;
-}
-
-/*--------------------------------------------------*/
-.product-image {
-  float: left;
-  width: 20%;
-}
-.product-details {
-  float: left;
-  width: 37%;
-}
-.product-price {
-  float: left;
-  width: 12%;
-}
-.product-quantity {
-  float: left;
-  width: 10%;
-}
-.product-removal {
-  float: left;
-  width: 9%;
-}
-.product-line-price {
-  float: left;
-  width: 12%;
-  text-align: right;
-}
-
-.remove-product {
-  border: 0;
-  padding: 4px 8px;
-  background-color: #c66;
-  color: #fff;
-  font-family: "font-bold";
-  font-size: 12px;
-  border-radius: 3px;
-}
-
-.remove-product:hover {
-  background-color: #a44;
-}
+  flex-wrap: wrap;
+  justify-content: center;
+  }

@@ -11,7 +11,6 @@ class AllProducts extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { products, addToCart } = this.props;
     return (
       <div>
@@ -20,22 +19,18 @@ class AllProducts extends React.Component {
           {products.length < 1 ? (
             <h1>We are completely out of stock :(</h1>
           ) : (
-            products.map((product) => (
+            <div className='allProducts'>
+            {products.map((product) => (
               <div className="single-product-border" key={product.id}>
                 <Link to={`/products/${product.id}`}>
                   <h2>{product.name}</h2>
-                  <img src={product.image} />
+                  <img className="products-image-size" src={product.image} height='50' width='50'/>
                   <h3>${product.price}</h3>
                 </Link>
-                <button
-                  onClick={() => {
-                    addToCart(product, product.qty);
-                  }}
-                >
-                  <h1>add to cart</h1>
-                </button>
+                <button onClick={() => {addToCart(product, product.qty)}}> <h1>add to cart</h1> </button>
               </div>
-            ))
+            ))}
+            </div>
           )}
         </div>
       </div>

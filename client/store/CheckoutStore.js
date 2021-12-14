@@ -7,7 +7,7 @@ export const DELETE_FROM_CART = "DELETE_FROM_CART";
 
 export const _deleteFromCart = (product) => ({
   type: DELETE_FROM_CART,
-  product,
+  payload: product,
 });
 
 export const _addProduct = (product) => ({
@@ -26,7 +26,7 @@ export const addProduct = (product) => {
         (cartItems) => cartItems.id === product.id
       );
 
-      if (duplicates.length === 0) {
+      if (!duplicates.length) {
         const addProd = {
           ...product,
           qty: 1,
@@ -38,18 +38,7 @@ export const addProduct = (product) => {
         localStorage.setItem("cart", JSON.stringify(cartItems));
 
         dispatch(_addProduct(cartItems));
-      } else {
-        const addProd = {
-          ...product,
-          qty: 1,
-        };
-
-          console.log('this is the if(===): ', cartItems.id, product.id)
-        //add cart to redux
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-
-        dispatch(_addProduct(cartItems));
-      }
+      } 
     } catch (error) {
       console.log(
         "there is an error inside of our addProducts thunk store/checkoutStore",
@@ -66,7 +55,11 @@ export const deleteFromCart = (product) => {
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
 
-      // const updatedCart = cartItems.filter(items)
+      const updatedCart = cartItems.filter(item => item.id !== product.id)
+
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      dispatch(_deleteFromCart(updatedCart));
 
     } catch (error) {
       console.log(
@@ -96,9 +89,8 @@ export default function checkoutStoreReducer(state = initialState, action) {
       };
     case DELETE_FROM_CART:
       return {
-        ...state,
-        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
-      };
+        cartItems: [...action.payload],
+      }
     default:
       return state;
   }
