@@ -123,3 +123,10 @@ form div {
     margin: 30px;
     color: beige;
     }
+
+  #user-view-by-admin-order-div {
+    margin-bottom: 20px;
+    border: 2px solid rgb(218, 214, 214);
+    margin: auto;
+    width: 50%;
+  }
