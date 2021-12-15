@@ -69,4 +69,17 @@ router.post("/admin", verifyAdmin , async (req, res, next) => {
   }
 } )
 
+//admin delete request with verifyAdmin middleware
+
+router.delete("/:productId", verifyAdmin, async (req, res, next) => {
+  try {
+  const id = req.params.productId
+  const productToDelete = await Product.findByPk(id)
+  await productToDelete.destroy()
+  res.send(productToDelete)
+} catch (error) {
+    next (error)
+  }
+} )
+
 module.exports = router;

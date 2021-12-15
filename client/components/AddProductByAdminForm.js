@@ -12,7 +12,7 @@ class AddProductByAdminForm extends React.Component {
             ABV: '',
             stockAmount: '',
             price: '',
-            description: 'If life gives you lemons, make lemonade',
+            description: 'If life gives you lemons, make lemonade.',
             alcoholType: '',
             showForm: false
         }
