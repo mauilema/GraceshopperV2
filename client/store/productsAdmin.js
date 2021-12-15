@@ -40,7 +40,7 @@ export const addProductAdmin = (productAdmin) => {
     return async (dispatch) => {
       try {
       const token = window.localStorage.getItem('token')
-      const { data: added} = await axios.post('api/products/admin/:productId', productAdmin, {
+      const { data: added} = await axios.post('api/products/admin', productAdmin, {
           headers: {
               authorization: token
           }

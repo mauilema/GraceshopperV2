@@ -1,9 +1,10 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { addProduct } from "../store/CheckoutStore";
 import { fetchProductsAdmin } from "../store/productsAdmin";
+import AddProductByAdminForm from "./AddProductByAdminForm";
 
 class AllProductsAdminView extends React.Component {
   componentDidMount() {
@@ -15,6 +16,9 @@ class AllProductsAdminView extends React.Component {
     return (
       <div>
         <h1>Our Current Liquor Selection:</h1>
+        <div>
+            <Route path="/adminProducts" component={AddProductByAdminForm} />
+        </div>
         <div>
           {productsAdmin.length < 1 ? (
             <h1>We are completely out of stock :(</h1>

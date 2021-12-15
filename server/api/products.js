@@ -59,4 +59,14 @@ router.get("/admin/:productId", verifyAdmin, async (req, res, next) => {
   }
 });
 
+//admin post/create request with verifyAdmin middleware
+
+router.post("/admin", verifyAdmin , async (req, res, next) => {
+  try {
+  res.status(201).send(await Product.create(req.body))
+  } catch (error) {
+    next (error)
+  }
+} )
+
 module.exports = router;
