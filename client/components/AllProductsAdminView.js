@@ -1,39 +1,39 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import { fetchProducts } from "../store/products";
 import { Link } from "react-router-dom";
 import { addProduct } from "../store/CheckoutStore";
+import { fetchProductsAdmin } from "../store/productsAdmin";
 
-class AllProducts extends React.Component {
+class AllProductsAdminView extends React.Component {
   componentDidMount() {
-    this.props.getProducts();
+    this.props.getProductsAdmin();
   }
 
   render() {
-    const { products, addToCart } = this.props;
+    const { productsAdmin, addToCart } = this.props;
     return (
       <div>
         <h1>Our Current Liquor Selection:</h1>
         <div>
-          {products.length < 1 ? (
+          {productsAdmin.length < 1 ? (
             <h1>We are completely out of stock :(</h1>
           ) : (
             <div className='allProducts'>
-            {products.map((product) => (
-              <div className="single-product-border" key={product.id}>
-                <Link to={`/products/${product.id}`}>
-                  <h2>{product.name}</h2>
-                  <img className="products-image-size" src={product.image} height='50' width='50'/>
+            {productsAdmin.map((productAdmin) => (
+              <div className="single-productAdmin-border" key={productAdmin.id}>
+                {/* <Link to={`/products/${productAdmin.id}`}> */}
+                  <h2>{productAdmin.name}</h2>
+                  <img className="products-image-size" src={productAdmin.image} height='50' width='50'/>
                   <div>
                   <button className="view-more-product-info-button">Click for More Info</button>
                   </div>
-                  <h3>${product.price}</h3>
-                </Link>
+                  <h3>${productAdmin.price}</h3>
+                {/* </Link> */}
                 <div>
                 <button
                   onClick={() => {
-                    addToCart(product, product.qty);
+                    addToCart(productAdmin, productAdmin.qty);
                   }}
                 >
                   <h1>add to cart</h1>
@@ -51,16 +51,16 @@ class AllProducts extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products,
+    productsAdmin: state.productsAdmin,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getProducts: () => {
-      dispatch(fetchProducts());
+    getProductsAdmin: () => {
+      dispatch(fetchProductsAdmin());
     },
     addToCart: (product, qty) => dispatch(addProduct(product, qty)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(AllProducts);
+export default connect(mapStateToProps, mapDispatchToProps)(AllProductsAdminView);

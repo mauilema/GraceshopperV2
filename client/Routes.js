@@ -10,6 +10,7 @@ import GuestCart from './components/Cart';
 import UserCart from './components/UserCart';
 import AllUsersAdminView from './components/AllUsersAdminView';
 import SingleUser from './components/SingleUser';
+import AllProductsAdminView from './components/AllProductsAdminView';
 
 
 /**
@@ -38,6 +39,7 @@ class Routes extends Component {
                 <Switch>
                   <Route exact path="/users/:userId" component={SingleUser} />
                   <Route exact path="/users" component={AllUsersAdminView} />
+                  <Route exact path="/adminProducts" component={AllProductsAdminView} />
                 </Switch>
               )}
               <Redirect to="/home" />
