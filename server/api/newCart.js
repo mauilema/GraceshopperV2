@@ -3,122 +3,86 @@ const Orders = require('../db/models/Orders');
 const ProductOrders = require('../db/models/ProductOrders');
 const Product = require('../db/models/Product');
 
-// helper functions
-const findCart = (userId) =>
-	Orders.findAll({
-		where: {
-			userId,
-			fulfilled: false,
-		},
-	});
-
-const findCartItem = (orderId, productId) =>
-	ProductOrders.findOne({
-		where: {
-			orderId,
-			productId,
-		},
-	});
-
 // Routes
 router.get('/:id', async (req, res, next) => {
 	try {
-		const cart = await Orders.findAll({
+		const cart = await Orders.findOne({
 			where: {
 				userId: req.params.id,
 				fulfilled: false,
 			},
 			include: [{ model: Product }],
 		});
-		// console.log('This is the cart from the user order route', userOrder);
 		res.status(200).send(cart);
-	} catch (err) {
-		console.log('This is the error in cart route', err);
-		next(err);
+	} catch (error) {
+		next(error);
 	}
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/:id', async (req, res, next) => {
 	try {
-		const order = req.cart;
-		var newProductOrder;
-		newProductOrder = await ProductOrders.findOne({
+		let order = await Orders.findOne({
 			where: {
-				productId: req.body.productId,
-				orderId: order.id,
+				userId: req.params.id,
+				fulfilled:false
 			},
-		});
-
-		if (newProductOrder) {
-			let newQuantity = 0;
-
-			newQuantity = newProductOrder.quantity + req.body.quantity;
-
-			await newProductOrder.update({
-				quantity: newQuantity,
-			});
-		} else {
-			newProductOrder = await ProductOrders.create({
-				productId: req.body.productId,
-				quantity: req.body.quantity,
-				price: req.body.price,
-				orderId: order.id,
-			});
-		}
-
-		const product = await Product.findOne({
+			include: Product
+		})
+		let productOrder = await ProductOrders.findOrCreate({
 			where: {
-				id: req.body.productId,
-			},
-		});
-
-		res.json({ newProductOrder, product });
-	} catch (err) {
-		next(err);
+				orderId: order.id,
+				productId: req.body.productId
+			}
+		})	
+		console.log('This is the req.data from cart post route:', req.data)
+		res.json(productOrder)
+	} catch (error) {
+		console.log('This is the error from cart post route:', error)
+		
+		next(error);
 	}
 });
 
 router.put('/:id', async (req, res, next) => {
 	try {
-		var order = await Orders.findOne({
+		let order = await Orders.findOne({
 			where: {
 				userId: req.params.id,
+				fulfilled: false
 			},
+			include: Product,
 		});
 
-		var productOrder = await ProductOrders.findOne({
+		let productOrder = await ProductOrders.findOne({
 			where: {
-				productId: req.body.productId,
 				orderId: order.id,
+				productId: req.body.productId
 			},
 		});
 
-		var product = await Product.findOne({
-			where: {
-				id: req.body.productId,
-			},
-		});
-
-		await productOrder.update({
-			quantity: req.body.quantity,
-		});
+		let updatedOrder = await productOrder.update(req.body);
+		res.json(updatedOrder);
+	} catch (error) {
 		console.log('This is req.body:', req.body)
-		res.json({ productOrder, product });
-	} catch (err) {
-		console.log('This is the error from the cart put route:', err)
-		next(err);
+		next(error);
 	}
 });
 
 router.delete('/:id', async (req, res, next) => {
 	try {
-		const cart = await Orders.findAll({
+		const cart = await Orders.findOne({
 			where: {
 				userId: req.params.id,
 				fulfilled: false,
 			},
+			include: Product
 		});
-		const cartItem = await findCartItem(cart[0].dataValues.id, req.params.id);
+		const cartItem = await ProductOrders.findOne({
+			where: {
+				orderId: cart.id,
+				productId: req.body.item.product.id
+			}
+		})
 		if (!cartItem) {
 			return res.sendStatus(404);
 		}

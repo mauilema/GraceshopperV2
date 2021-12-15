@@ -1,4 +1,5 @@
 const faker = require('faker');
+
 let tequilaBottleImages = [
 	'https://images.unsplash.com/photo-1516535794938-6063878f08cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dGVxdWlsYSUyMGJvdHRsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
 	'https://images.unsplash.com/photo-1630956792643-37202d382297?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dGVxdWlsYSUyMGJvdHRsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
@@ -37,7 +38,7 @@ function assignLiquorTypes(type) {
 
 let products = [];
 
-for (let i = 1; i <= 150; i++) {
+for (let i = 1; i <= 5; i++) {
 	let name = faker.name.lastName();
 	let ABV = faker.datatype.number({ min: 0, max: 85 });
 	let stockAmount = faker.datatype.number({ min: 0, max: 1500 });
@@ -58,13 +59,13 @@ for (let i = 1; i <= 150; i++) {
 		price,
 		description,
 		alcoholType,
-		image
-	})
+		image,
+	});
 }
 
 let users = [];
 
-for (let i = 1; i <= 100; i++) {
+for (let i = 1; i <= 3; i++) {
 	let username = faker.internet.userName();
 	let password = 'password123';
 	let fullName = faker.fake('{{name.firstName}} {{name.lastName}}');
@@ -84,10 +85,10 @@ for (let i = 1; i <= 100; i++) {
 
 let orders = [];
 
-for (let i = 1; i <= 200; i++) {
-	let fulfilled = faker.datatype.boolean();
-	let userId = faker.datatype.number({ min: 1, max: 100 });
-
+for (let i = 1; i <= 10; i++) {
+	let fulfilled = true;
+	let userId = faker.datatype.number({ min: 1, max: 3 });
+	
 	orders.push({
 		fulfilled,
 		userId,
@@ -96,9 +97,9 @@ for (let i = 1; i <= 200; i++) {
 
 let productOrders = [];
 
-for (let i = 1; i <= 200; i++) {
+for (let i = 1; i <= 13; i++) {
 	let orderId = i;
-	let productId = faker.datatype.number({ min: 1, max: 150 });
+	let productId = faker.datatype.number({ min: 1, max: 5 });
 
 	productOrders.push({
 		orderId,
