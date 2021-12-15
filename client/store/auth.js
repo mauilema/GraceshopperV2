@@ -53,7 +53,6 @@ export const authenticate =
 			} else {
 				res = await axios.post(`/auth/${method}`, { username, password });
 				window.localStorage.setItem(TOKEN, res.data.token);
-				console.log('This is res.data', res.data);
 				dispatch(me());
 				history.push('/user/:id');
 			}
