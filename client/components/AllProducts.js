@@ -1,14 +1,33 @@
-
-import React from "react";
-import { connect } from "react-redux";
-import { fetchProducts } from "../store/products";
-import { Link } from "react-router-dom";
-import { addProduct } from "../store/CheckoutStore";
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchProducts } from '../store/products';
+import { Link } from 'react-router-dom';
+import { addProduct } from '../store/CheckoutStore';
+import { addItemThunk } from '../store/cart';
 
 class AllProducts extends React.Component {
-  componentDidMount() {
-    this.props.getProducts();
-  }
+	constructor(props) {
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+		this.addIt = this.addIt.bind(this);
+	}
+	addIt(product) {
+		const newProductOrder = {
+			productId: product.id,
+			price: product.price,
+		};
+		this.props.addItem(this.props.currentUser.id, newProductOrder);
+	}
+
+	handleClick(product) {
+		this.props.isLoggedIn
+			? this.addIt(product)
+			: this.props.addToCart(product, product.qty);
+	}
+
+	componentDidMount() {
+		this.props.getProducts();
+	}
 
   render() {
     const { products, addToCart } = this.props;
@@ -32,10 +51,10 @@ class AllProducts extends React.Component {
                 </Link>
                 <div>
                 <button
-                  onClick={() => {
-                    addToCart(product, product.qty);
-                  }}
-                >
+										onClick={() => {
+											this.handleClick(product, product.qty);
+										}}
+									>
                   <h1>add to cart</h1>
                 </button>
                 </div>
@@ -50,17 +69,20 @@ class AllProducts extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    products: state.products,
-  };
+	return {
+		products: state.products,
+		isLoggedIn: !!state.auth.id,
+		currentUser: state.currentUser,
+	};
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    getProducts: () => {
-      dispatch(fetchProducts());
-    },
-    addToCart: (product, qty) => dispatch(addProduct(product, qty)),
-  };
+	return {
+		getProducts: () => {
+			dispatch(fetchProducts());
+		},
+		addToCart: (product, qty) => dispatch(addProduct(product, qty)),
+		addItem: (id, item) => dispatch(addItemThunk(id, item)),
+	};
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AllProducts);
