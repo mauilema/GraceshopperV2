@@ -32,7 +32,7 @@ class SingleUser extends React.Component {
                 <h1>User Info:</h1>
                 <div className="single-user-info-div">
                     <div>
-                        <h2>fullName: {user.fullName}</h2>
+                        <h2>Full Name: {user.fullName}</h2>
                     </div>
                     <div>
                         <h2>isAdmin: {String(user.isAdmin)}</h2>
