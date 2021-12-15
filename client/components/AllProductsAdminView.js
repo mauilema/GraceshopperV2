@@ -2,8 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Route, Link } from "react-router-dom";
-import { addProduct } from "../store/CheckoutStore";
-import { fetchProductsAdmin } from "../store/productsAdmin";
+import { deleteProductAdmin, fetchProductsAdmin } from "../store/productsAdmin";
 import AddProductByAdminForm from "./AddProductByAdminForm";
 
 class AllProductsAdminView extends React.Component {
@@ -12,7 +11,7 @@ class AllProductsAdminView extends React.Component {
   }
 
   render() {
-    const { productsAdmin, addToCart } = this.props;
+    const { productsAdmin } = this.props;
     return (
       <div>
         <h1>Our Current Liquor Selection:</h1>
@@ -33,15 +32,11 @@ class AllProductsAdminView extends React.Component {
                   <button className="view-more-product-info-button">Click for More Info</button>
                   </div>
                   <h3>${productAdmin.price}</h3>
+                  <div className="delete-button-div">
+                      <button className="delete-button" type="submit" onClick={() => {this.props.deleteProductAdmin(productAdmin.id)}}>DELETE USER || X</button>
+                  </div>
                 {/* </Link> */}
                 <div>
-                <button
-                  onClick={() => {
-                    addToCart(productAdmin, productAdmin.qty);
-                  }}
-                >
-                  <h1>add to cart</h1>
-                </button>
                 </div>
               </div>
             ))}
@@ -64,7 +59,9 @@ const mapDispatchToProps = (dispatch) => {
     getProductsAdmin: () => {
       dispatch(fetchProductsAdmin());
     },
-    addToCart: (product, qty) => dispatch(addProduct(product, qty)),
+    deleteProductAdmin: (productAdmin) => {
+      dispatch(deleteProductAdmin(productAdmin))
+    }
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AllProductsAdminView);
