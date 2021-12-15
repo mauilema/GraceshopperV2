@@ -62,7 +62,7 @@ async function seed() {
 		
 	let unfulfilled = []
 	
-	for (let i = 1; i <= 3; i++) {
+	for (let i = 1; i <= 15; i++) {
 		let fulfilled = false;
 		let userId = i;
 		

@@ -39,16 +39,22 @@ class Cart extends React.Component {
 
 	componentDidMount() {
 		this.props.getCart(this.props.currentUser.id);
+
+
 	}
 
 	render() {
 		let { cart, currentUser } = this.props;
 		let total = 0;
 		let itemTotal = 0;
-		cart.products.forEach((item) => {
+		if(cart.products) {
+			cart.products.forEach((item) => {
 			itemTotal += item.price * item.productOrders.quantity;
 			total += itemTotal;
+			return total
 		});
+		}
+		
 
 		return (
 			<div>
@@ -66,8 +72,8 @@ class Cart extends React.Component {
 								</tr>
 							</thead>
 
-							{cart ? (
-								cart.products.length ? (
+							{cart.products ? (
+								cart.products[0] ? (
 									<CartProducts
 										cartItem={cart.products}
 										handleClick={this.handleClick}
