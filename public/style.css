@@ -21,18 +21,26 @@ form div {
 }
 
 .single-product-border {
-  border: 2px solid rgb(218, 214, 214);
+  /* border: 2px solid rgb(218, 214, 214);
   margin: auto;
   width: 75%;
   padding: 15px;
   margin-bottom: 5%;
-  text-align: center;
+  text-align: center; */
+
+  flex-basis: 50px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.94);
+  margin: 20px 20px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 
 .products-image-size {
-  height: 500px;
-  width: 500px
+  height: 300px;
+  width: 300px
 }
 
 .add-user-form {
@@ -84,6 +92,13 @@ form div {
   color: beige;
   }
 
+
+.allProducts{
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
   .view-more-product-info-button {
     background-color: rgb(19, 88, 179);
     margin: 10px;
