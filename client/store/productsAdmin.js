@@ -3,6 +3,7 @@ import axios from 'axios';
 //action types
 const SET_PRODUCTS_ADMIN = 'SET_PRODUCTS_ADMIN';
 const ADD_PRODUCT_ADMIN = 'ADD_PRODUCT_ADMIN';
+const DELETE_PRODUCT_ADMIN = 'DELETE_PRODUCT_ADMIN'
 
 //action creators
 const setProductsAdmin = (productsAdmin) => {
@@ -18,6 +19,13 @@ const _addProductAdmin = (productAdmin) => {
 		productAdmin,
 	};
 };
+
+const _deleteProductAdmin = (productAdmin) => {
+	return {
+		type: DELETE_PRODUCT_ADMIN,
+		productAdmin
+	}
+}
 
 //thunk creators
 export const fetchProductsAdmin = () => {
@@ -52,12 +60,30 @@ export const addProductAdmin = (productAdmin) => {
     }
   }
 
+export const deleteProductAdmin = (id) => {
+    return async (dispatch) => {
+        try {
+        const token = window.localStorage.getItem('token')    
+        const { data:user } = await axios.delete(`api/products/${id}`, {
+            headers: {
+                authorization: token
+            }
+        })
+        dispatch(_deleteProductAdmin(user))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 const initialState = [];
 
 export default function productsAdminReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_PRODUCTS_ADMIN:
 			return action.productsAdmin
+		case DELETE_PRODUCT_ADMIN:
+			return state.filter((productAdmin) => productAdmin.id !== action.productAdmin.id)
         case ADD_PRODUCT_ADMIN:
             return [...state, action.productAdmin]
 		default:
