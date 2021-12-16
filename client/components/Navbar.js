@@ -30,7 +30,7 @@ const Navbar = ({
 							width="50"
 							height="40"
 						/>
-						{/* <span>Cart {cart.cartItems.length}</span>*/}
+						<span>Cart</span>
 					</Link>
 				</div>
 			) : (
