@@ -24,21 +24,34 @@ router.post('/:id', async (req, res, next) => {
 		let order = await Orders.findOne({
 			where: {
 				userId: req.params.id,
-				fulfilled:false
+				fulfilled: false,
 			},
-			include: Product
-		})
-		let productOrder = await ProductOrders.findOrCreate({
-			where: {
-				orderId: order.id,
-				productId: req.body.productId
-			}
-		})	
-		console.log('This is the req.data from cart post route:', req.data)
-		res.json(productOrder)
+			include: Product,
+		});
+		let productOrder;
+		if (order=== null) {
+			let newOrder = await Orders.create({
+				userId: req.params.id,
+				fulfilled: false,
+			});
+
+			productOrder = await ProductOrders.findOrCreate({
+				where: {
+					orderId: newOrder.id,
+					productId: req.body.productId,
+				},
+			});
+		} else {
+			productOrder = await ProductOrders.findOrCreate({
+				where: {
+					orderId: order.id,
+					productId: req.body.productId,
+				},
+			});
+		}
+
+		res.json(productOrder);
 	} catch (error) {
-		console.log('This is the error from cart post route:', error)
-		
 		next(error);
 	}
 });
@@ -48,7 +61,7 @@ router.put('/:id', async (req, res, next) => {
 		let order = await Orders.findOne({
 			where: {
 				userId: req.params.id,
-				fulfilled: false
+				fulfilled: false,
 			},
 			include: Product,
 		});
@@ -56,14 +69,13 @@ router.put('/:id', async (req, res, next) => {
 		let productOrder = await ProductOrders.findOne({
 			where: {
 				orderId: order.id,
-				productId: req.body.productId
+				productId: req.body.productId,
 			},
 		});
 
 		let updatedOrder = await productOrder.update(req.body);
 		res.json(updatedOrder);
 	} catch (error) {
-		console.log('This is req.body:', req.body)
 		next(error);
 	}
 });
@@ -75,14 +87,14 @@ router.delete('/:id', async (req, res, next) => {
 				userId: req.params.id,
 				fulfilled: false,
 			},
-			include: Product
+			include: Product,
 		});
 		const cartItem = await ProductOrders.findOne({
 			where: {
 				orderId: cart.id,
-				productId: req.body.item.product.id
-			}
-		})
+				productId: req.body.item.product.id,
+			},
+		});
 		if (!cartItem) {
 			return res.sendStatus(404);
 		}
