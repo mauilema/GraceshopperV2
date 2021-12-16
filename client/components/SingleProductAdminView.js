@@ -21,9 +21,10 @@ export class SingleProduct extends React.Component {
           <div className="single-product-border">
             <h1>{product.name}</h1>
             <img className="products-image-size" src={product.image} />
+            <h1>ABV: {product.ABV}%</h1>
+            <h1>Stock Amount: {product.stockAmount}</h1>
             <h1>Price: ${product.price}</h1>
             <p>Description: {product.description}</p>
-            <h3>ABV: {product.ABV}%</h3>
             <h3>Category: {product.alcoholType}</h3>
             <div className="back-to-all-products-link" >
             <Link to={'/adminProducts'}>
