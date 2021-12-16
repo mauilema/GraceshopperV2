@@ -15,6 +15,7 @@ const Navbar = ({
 		<h1>Fullstack Spirits</h1>
 		<nav>
 			{isLoggedIn && isAdmin && <Link to="/users">View All Users</Link>}
+			{isLoggedIn && isAdmin && <Link to="/adminProducts">View All Products</Link>}
 			{isLoggedIn ? (
 				<div>
 					{/* The navbar will show these links after you log in */}
