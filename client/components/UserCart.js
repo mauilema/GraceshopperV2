@@ -10,26 +10,6 @@ class Cart extends React.Component {
 	constructor(props) {
 		super(props);
 		this.removeFromCart = this.removeFromCart.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-	}
-
-	handleClick(evt, product) {
-		evt.preventDefault();
-		let newQuantity = parseInt(event.target.quantity.value);
-		event.target.quantity.value = '';
-
-		if (!newQuantity) {
-			return;
-		}
-		const newProductOrder = {
-			productId: product.id,
-			quantity: newQuantity,
-			price: product.price,
-			changeQuantity: true,
-		};
-
-		this.props.updateItem(this.props.currentUser.id, newProductOrder);
-		this.props.getCart(this.props.currentUser.id);
 	}
 
 	removeFromCart(userId, item) {
@@ -42,7 +22,7 @@ class Cart extends React.Component {
 	}
 
 	render() {
-		let { cart, currentUser } = this.props;
+		let { cart, currentUser, updateItem, getCart } = this.props;
 		let total = 0;
 		let itemTotal = 0;
 		if (cart.products) {
@@ -78,9 +58,10 @@ class Cart extends React.Component {
 								cart.products[0] ? (
 									<CartProducts
 										cartItem={cart.products}
-										handleClick={this.handleClick}
 										removeFromCart={this.removeFromCart}
 										currentUser={currentUser}
+										updateItem={updateItem}
+										getCart={getCart}
 									/>
 								) : (
 									<tbody>
