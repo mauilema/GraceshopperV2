@@ -12,6 +12,7 @@ import cart from './cart'
 import orders from './order'
 import usersReducer from './users'
 import singleUserReducer from './singleUserByAdmin'
+// import Checkout, { formReducer, order } from 'react-checkout';
 import productsAdminReducer from './productsAdmin';
 import singleProductAdminReducer from './singleProductAdmin';
 
@@ -27,6 +28,7 @@ const reducer = combineReducers({
   orders,
   users: usersReducer,
   user: singleUserReducer,
+	// simpleForm: formReducer
   productsAdmin: productsAdminReducer,
   productAdmin: singleProductAdminReducer
 });

@@ -10,12 +10,15 @@ const Navbar = ({
 	isAdmin,
 	currentUser,
 	guestCart,
+	cart,
 }) => (
 	<div>
 		<h1>Fullstack Spirits</h1>
-		<nav>
+		<nav className="navbar">
 			{isLoggedIn && isAdmin && <Link to="/users">View All Users</Link>}
-			{isLoggedIn && isAdmin && <Link to="/adminProducts">View All Products</Link>}
+			{isLoggedIn && isAdmin && (
+				<Link to="/adminProducts">View All Products</Link>
+			)}
 			{isLoggedIn ? (
 				<div>
 					{/* The navbar will show these links after you log in */}
@@ -45,7 +48,12 @@ const Navbar = ({
 							width="50"
 							height="40"
 						/>
-						<span>Cart {guestCart.cartItems.length}</span>
+						<span className="number">
+							{guestCart.cartItems.reduce(
+								(total, itemQty) => total + Number(itemQty.qty),
+								0
+							)}
+						</span>
 					</Link>
 				</div>
 			)}
@@ -57,12 +65,14 @@ const Navbar = ({
 /**
  * CONTAINER
  */
+
 const mapState = (state) => {
 	return {
 		isLoggedIn: !!state.auth.id,
 		isAdmin: !!state.auth.isAdmin,
 		currentUser: state.currentUser,
 		guestCart: state.guestCart,
+		cart: state.cart,
 	};
 };
 

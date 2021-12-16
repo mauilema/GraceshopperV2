@@ -39,35 +39,37 @@ class Cart extends React.Component {
 
 	componentDidMount() {
 		this.props.getCart(this.props.currentUser.id);
-
-
 	}
 
 	render() {
 		let { cart, currentUser } = this.props;
 		let total = 0;
 		let itemTotal = 0;
-		if(cart.products) {
+		if (cart.products) {
 			cart.products.forEach((item) => {
-			itemTotal += item.price * item.productOrders.quantity;
-			total += itemTotal;
-			return total
-		});
+				itemTotal += item.price * item.productOrders.quantity;
+				total += itemTotal;
+				return total;
+			});
 		}
-		
 
 		return (
 			<div>
 				<div className="shopping-cart">
 					<div className="column-labels">
-						<h1>Shopping Cart</h1>
-						<table>
+						<table
+							className="shopping-cart"
+							width="100%"
+							cellSpacing={0}
+							cellPadding={0}
+						>
 							<thead>
 								<tr>
 									<th></th>
 									<th>Name</th>
 									<th>Price</th>
 									<th>Quantity</th>
+									<th>Subtotal</th>
 									<th>Remove</th>
 								</tr>
 							</thead>
@@ -97,11 +99,14 @@ class Cart extends React.Component {
 									</tr>
 								</tbody>
 							)}
+							<tfoot>
+								<tr>
+									<td colSpan={6} className="total">
+										Total: ${total}
+									</td>
+								</tr>
+							</tfoot>
 						</table>
-					</div>
-					<div>
-						<div className="total-amount">
-							<h3>Subtotal: ${total}</h3></div>
 					</div>
 				</div>
 			</div>
