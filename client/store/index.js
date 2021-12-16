@@ -12,6 +12,7 @@ import cart from './cart'
 import orders from './order'
 import usersReducer from './users'
 import singleUserReducer from './singleUserByAdmin'
+// import Checkout, { formReducer, order } from 'react-checkout';
 
 //productsInCart must change component state name
 
@@ -24,7 +25,8 @@ const reducer = combineReducers({
   cart,
   orders,
   users: usersReducer,
-  user: singleUserReducer
+  user: singleUserReducer,
+	// simpleForm: formReducer
 });
 
 const middleware = composeWithDevTools(

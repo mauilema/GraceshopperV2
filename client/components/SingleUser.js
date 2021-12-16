@@ -33,7 +33,7 @@ class SingleUser extends React.Component {
         const { user }= this.props
         // const { handleRemoveRelation } = this
         return (
-            <div>
+            <div className = 'singleUser'>
                 <h1>User Info:</h1>
                 <div className="single-user-info">
                     <div>

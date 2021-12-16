@@ -1,4 +1,3 @@
-
 import React from "react";
 import { connect } from "react-redux";
 import { fetchProducts } from "../store/products";
@@ -13,27 +12,51 @@ class AllProducts extends React.Component {
   render() {
     const { products, addToCart } = this.props;
     return (
-      <div>
-        <h1>Our Current Liquor Selection:</h1>
+      <section className="products" id="products">
         <div>
-          {products.length < 1 ? (
-            <h1>We are completely out of stock :(</h1>
-          ) : (
-            <div className='allProducts'>
-            {products.map((product) => (
-              <div className="single-product-border" key={product.id}>
-                <Link to={`/products/${product.id}`}>
-                  <h2>{product.name}</h2>
-                  <img className="products-image-size" src={product.image} height='50' width='50'/>
-                  <h3>${product.price}</h3>
-                </Link>
-                <button onClick={() => {addToCart(product, product.qty)}}> <h1>add to cart</h1> </button>
+          <h1 className="heading">Our Current Liquor Selection:</h1>
+          <div>
+            {products.length < 1 ? (
+              <h2>Loading...</h2>
+            ) : (
+              <div className="product">
+                <div className="wrapper">
+                  {products.map((product) => (
+                    <div
+                      /*className="single-product-border"*/ className="box"
+                      key={product.id}
+                    >
+                      <Link to={`/products/${product.id}`}>
+                        <img
+                          className="products-image-size"
+                          src={product.image}
+                        />
+                        <h3>{product.name}</h3>
+                        <div className="price">$ {product.price}</div>
+                      </Link>
+                      <div>
+                        {product.stockAmount > 0 ? (
+                          <h1>In stock</h1>
+                        ) : (
+                          <h1>Out of stock</h1>
+                        )}
+                      </div>
+                      <button
+                        onClick={() => {
+                          addToCart(product, product.qty);
+                        }}
+                      >
+                        {" "}
+                        <h1>add to cart</h1>{" "}
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
+      </section>
     );
   }
 }
