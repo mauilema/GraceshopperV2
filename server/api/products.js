@@ -17,6 +17,7 @@ router.get("/", async (req, res, next) => {
 });
 
 
+
 //get all products admin only access with authentication middleware
 router.get("/admin", verifyAdmin, async (req, res, next) => {
   try {
@@ -29,6 +30,7 @@ router.get("/admin", verifyAdmin, async (req, res, next) => {
 
 
 //get a single product:
+
 router.get("/:productId", async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.productId, {

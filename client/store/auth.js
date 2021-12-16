@@ -50,6 +50,7 @@ export const authenticate =
 					address,
 					dob,
 				});
+				history.push('/login');
 			} else {
 				res = await axios.post(`/auth/${method}`, { username, password });
 				window.localStorage.setItem(TOKEN, res.data.token);
