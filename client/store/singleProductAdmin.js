@@ -5,26 +5,26 @@ const SET_PRODUCT_ADMIN = 'SET_PRODUCT_ADMIN'
 const UPDATE_PRODUCT_ADMIN = 'UPDATE_PRODUCT_ADMIN'
 
 //action creators
-const setProductAdmin = (productAdmin) => {
+const setProductAdmin = (product) => {
     return {
         type: SET_PRODUCT_ADMIN,
-        productAdmin
+        product
     }
 }
 
-const _updateProductAdmin = (productAdmin) => {
+const _updateProductAdmin = (product) => {
     return {
       type: UPDATE_PRODUCT_ADMIN,
-      productAdmin
+      product
     }
   }
 
 //thunk creators
-export const fetchProductAdmin = (productAdminId) => {
+export const fetchProductAdmin = (productId) => {
     return async (dispatch) => {
         try {
         const token = window.localStorage.getItem('token')    
-        const { data } = await axios.get(`/api/products/admin/${productAdminId}`, {
+        const { data } = await axios.get(`/api/products/admin/${productId}`, {
             headers: {
                 authorization: token
             }
@@ -36,11 +36,11 @@ export const fetchProductAdmin = (productAdminId) => {
     }
 }
 
-export const updateProductAdmin = (productAdmin) => {
+export const updateProductAdmin = (product) => {
     return async (dispatch) => {
       try {
       const token = window.localStorage.getItem('token') 
-      const { data: updated } = await axios.put(`/api/products/${productAdmin.id}`, productAdmin, {
+      const { data: updated } = await axios.put(`/api/products/${product.id}`, product, {
         headers: {
             authorization: token
         }
@@ -60,9 +60,9 @@ const initialState = {}
 export default function singleProductAdminReducer (state = initialState, action) {
     switch (action.type) {
         case SET_PRODUCT_ADMIN:
-            return action.productAdmin
-        // case UPDATE_USER:
-        //     return action.user
+            return action.product
+        case UPDATE_PRODUCT_ADMIN:
+            return action.product
         default:
             return state
     }
