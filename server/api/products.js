@@ -69,6 +69,18 @@ router.post("/admin", verifyAdmin , async (req, res, next) => {
   }
 } )
 
+//admin put/update request with verifyAdmin middleware
+
+router.put('/:productId', verifyAdmin, async (req, res, next) => {
+  try {
+  const id = req.params.productId
+  const productToUpdate = await Product.findByPk(id)
+  res.send(await productToUpdate.update(req.body))
+  } catch (error) {
+    next (error)
+  }
+} )
+
 //admin delete request with verifyAdmin middleware
 
 router.delete("/:productId", verifyAdmin, async (req, res, next) => {
