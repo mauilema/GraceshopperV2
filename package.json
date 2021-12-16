@@ -34,6 +34,7 @@
     "pg": "^8.5.1",
     "react-bootstrap": "^2.0.3",
     "react-checkout": "^0.1.3",
+    "react-select": "^5.2.1",
     "sequelize": "^6.3.5",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.3.0",

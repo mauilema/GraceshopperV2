@@ -13,6 +13,8 @@ import orders from './order'
 import usersReducer from './users'
 import singleUserReducer from './singleUserByAdmin'
 // import Checkout, { formReducer, order } from 'react-checkout';
+import productsAdminReducer from './productsAdmin';
+import singleProductAdminReducer from './singleProductAdmin';
 
 //productsInCart must change component state name
 
@@ -27,6 +29,8 @@ const reducer = combineReducers({
   users: usersReducer,
   user: singleUserReducer,
 	// simpleForm: formReducer
+  productsAdmin: productsAdminReducer,
+  productAdmin: singleProductAdminReducer
 });
 
 const middleware = composeWithDevTools(
