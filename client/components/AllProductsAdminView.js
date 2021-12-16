@@ -25,17 +25,17 @@ class AllProductsAdminView extends React.Component {
             <div className='allProducts'>
             {productsAdmin.map((productAdmin) => (
               <div className="single-productAdmin-border" key={productAdmin.id}>
-                {/* <Link to={`/products/${productAdmin.id}`}> */}
                   <h2>{productAdmin.name}</h2>
                   <img className="products-image-size" src={productAdmin.image} height='50' width='50'/>
                   <div>
-                  <button className="view-more-product-info-button">Click for More Info</button>
+                  <Link to={`/adminProducts/${productAdmin.id}`}> 
+                    <button className="view-more-product-info-button">Click for More Info</button>
+                  </Link>
                   </div>
                   <h3>${productAdmin.price}</h3>
                   <div className="delete-button-div">
                       <button className="delete-button" type="submit" onClick={() => {this.props.deleteProductAdmin(productAdmin.id)}}>DELETE USER || X</button>
                   </div>
-                {/* </Link> */}
                 <div>
                 </div>
               </div>
