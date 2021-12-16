@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { _addProduct, deleteFromCart } from "../store/CheckoutStore";
 // import { addOrderId } from "../store/order"; can't find the module
-// import Swal from "sweetalert2/dist/sweetalert2.js";
-// import swal from '@sweetalert/with-react'
+// import Swal from "sweetalert2";
+// import swal from 'sweetalertt'
 
 export class Checkout extends Component {
   handleQtyChange(event, product) {
