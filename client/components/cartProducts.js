@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const CartProducts = (props) => {
+
 	const { handleClick, removeFromCart, currentUser } = props;
 	return (
 		<tbody>
