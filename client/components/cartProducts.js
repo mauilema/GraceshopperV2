@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 
 const CartProducts = (props) => {
-
 	const { handleClick, removeFromCart, currentUser } = props;
 	return (
 		<tbody>
@@ -15,8 +14,8 @@ const CartProducts = (props) => {
 						<td>{product.name}</td>
 						<td>${product.price}/bottle</td>
 						<td>
-							{product.productOrders.quantity}
 							<form onSubmit={(evt) => handleClick(evt, product)}>
+								{product.productOrders.quantity}
 								<input
 									name="quantity"
 									type="number"
@@ -26,6 +25,7 @@ const CartProducts = (props) => {
 								<button type="submit">Update</button>
 							</form>
 						</td>
+						<td>${product.productOrders.quantity * product.price}</td>
 						<td>
 							<button
 								onClick={() => removeFromCart(currentUser.id, { product })}
