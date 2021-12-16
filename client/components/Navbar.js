@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
 import AllUsersAdminView from './AllUsersAdminView';
-
+let total = 0;
 const Navbar = ({
 	handleClick,
 	isLoggedIn,
@@ -33,7 +33,14 @@ const Navbar = ({
 							width="50"
 							height="40"
 						/>
-						<span>Cart</span>
+
+						<span>
+							{cart.products.reduce(
+								(total, { productOrders: { quantity } }) =>
+									total + Number(quantity),
+								0
+							)}
+						</span>
 					</Link>
 				</div>
 			) : (
