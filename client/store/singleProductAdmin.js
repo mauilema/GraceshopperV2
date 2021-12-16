@@ -2,7 +2,7 @@ import axios from 'axios'
 
 //action types
 const SET_PRODUCT_ADMIN = 'SET_PRODUCT_ADMIN'
-// const UPDATE_USER = 'UPDATE_USER'
+const UPDATE_PRODUCT_ADMIN = 'UPDATE_PRODUCT_ADMIN'
 
 //action creators
 const setProductAdmin = (productAdmin) => {
@@ -12,12 +12,12 @@ const setProductAdmin = (productAdmin) => {
     }
 }
 
-// const _updateUser = (user) => {
-//     return {
-//       type: UPDATE_USER,
-//       user
-//     }
-//   }
+const _updateProductAdmin = (productAdmin) => {
+    return {
+      type: UPDATE_PRODUCT_ADMIN,
+      productAdmin
+    }
+  }
 
 //thunk creators
 export const fetchProductAdmin = (productAdminId) => {
@@ -36,21 +36,21 @@ export const fetchProductAdmin = (productAdminId) => {
     }
 }
 
-// export const updateUser = (user) => {
-//     return async (dispatch) => {
-//       try {
-//       const token = window.localStorage.getItem('token') 
-//       const { data: updated } = await axios.put(`/api/users/${user.id}`, user, {
-//         headers: {
-//             authorization: token
-//         }
-//       })
-//       dispatch(_updateUser(updated))
-//       } catch (error) {
-//         console.log(error)
-//     }
-//     }
-//   }
+export const updateProductAdmin = (productAdmin) => {
+    return async (dispatch) => {
+      try {
+      const token = window.localStorage.getItem('token') 
+      const { data: updated } = await axios.put(`/api/products/${productAdmin.id}`, productAdmin, {
+        headers: {
+            authorization: token
+        }
+      })
+      dispatch(_updateProductAdmin(updated))
+      } catch (error) {
+        console.log(error)
+    }
+    }
+  }
 
 
 //initalState & reducer
