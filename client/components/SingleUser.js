@@ -26,9 +26,8 @@ class SingleUser extends React.Component {
 
     render () {
         const { user }= this.props
-        console.log(' this.props from component did mount single user ', this.props)
         return (
-            <div className="single-user-info-div">
+            <div className = 'singleUser'>
                 <h1>User Info:</h1>
                 <div className="single-user-info-div">
                     <div>
