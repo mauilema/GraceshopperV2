@@ -55,20 +55,17 @@ export class Checkout extends Component {
     });
 
     return (
-      <table
-        className="shopping-cart"
-        width="100%"
-        cellSpacing={0}
-        cellPadding={0}
-      >
+      <div className="shopping-cart">
+        <div>
+          <table>
         <thead>
           <tr>
-            <th>Product Image</th>
-            <th>Product Name</th>
+            <th></th>
+            <th>Name</th>
             <th>Price</th>
-            <th>Qty</th>
+            <th>Quantity</th>
             <th>Subtotal</th>
-            <th>Delete</th>
+            <th>Remove</th>
           </tr>
         </thead>
 
@@ -79,7 +76,7 @@ export class Checkout extends Component {
                 <img src={item.image} />
               </td>
               <td>{item.name}</td>
-              <td>{item.price}</td>
+              <td>${item.price}/Bottle</td>
               <td>
                 <input
                   type="number"
@@ -107,7 +104,7 @@ export class Checkout extends Component {
         <tfoot>
           <tr>
             <td colSpan={6} className="total">
-              Total: {totalAmount}
+              Total: ${totalAmount}
             </td>
             <td>
               <button onClick={() => this.createOrder(cartItems)}>
@@ -117,6 +114,10 @@ export class Checkout extends Component {
           </tr>
         </tfoot>
       </table>
+        </div>
+        
+      </div>
+      
     );
   }
 }
