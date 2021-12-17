@@ -60,8 +60,8 @@ for (let i = 1; i <= 50; i++) {
 	let name = faker.name.lastName();
 	let ABV = faker.datatype.number({ min: 0, max: 85 });
 	let stockAmount = faker.datatype.number({ min: 0, max: 1500 });
-	let price = faker.datatype.number({ min: 40, max: 120 });
-	let description = faker.lorem.words(12);
+	let price = faker.datatype.number({ min: 20, max: 120 });
+	let description = faker.lorem.sentences(3);
 	let alcoholType = faker.random.arrayElement([
 		'tequila',
 		'rum',
