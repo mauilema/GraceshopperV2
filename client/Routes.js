@@ -15,6 +15,7 @@ import { HomePage } from "./components/HomePage";
 import swal from "sweetalert";
 import AllProductsAdminView from './components/AllProductsAdminView';
 import SingleProductAdminView from './components/SingleProductAdminView';
+import CheckoutForm from "./components/checkoutForm";
 
 
 /**
@@ -29,6 +30,7 @@ class Routes extends Component {
     const { isLoggedIn, isAdmin } = this.props;
     return (
       <Switch>
+      <Route path='/checkout' component={CheckoutForm}/>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/products" component={AllProducts} />
           <Route exact path="/cart" component={GuestCart} />
