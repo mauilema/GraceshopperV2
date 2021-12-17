@@ -1167,9 +1167,9 @@ label {
 	align-content: center;
 	justify-content: center;
 	flex-direction: column;
-	background: url('https://p0.piqsels.com/preview/902/404/8/blurred-background-close-up-colors-dark.jpg');
-	background-position: center;
-	background-size: cover;
+	background: url('https://p0.piqsels.com/preview/902/404/8/blurred-background-close-up-colors-dark.jpg') repeat;
+	/* background-position: center; */
+	/* background-size: cover; */
 }
 
 .single-product-border {

@@ -142,7 +142,7 @@ export class CheckouthtmlForm extends Component {
                         id="card-cvv"
                         className="input-card-cvv"
                         maxLength="3"
-                        placeholder="000"
+                        placeholder="###"
                       />
                     </div>
                     <div className="card-holder input-field">
