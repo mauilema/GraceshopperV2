@@ -85,6 +85,9 @@ class Cart extends React.Component {
 									<td colSpan={6} className="total">
 										Total: ${total}
 									</td>
+									<td>
+										<button>Checkout</button>
+									</td>
 								</tr>
 							</tfoot>
 						</table>
