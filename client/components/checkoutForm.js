@@ -15,6 +15,7 @@ export class CheckouthtmlForm extends Component {
     const cartItems = this.props.guestCart.cartItems;
     const cart = this.props.cart;
     const isLoggedIn = this.props.isLoggedIn;
+
     let totalAmount = 0;
     let itemAmount = 0;
     let tax = 8.875;
@@ -26,9 +27,15 @@ export class CheckouthtmlForm extends Component {
       totalAmount += item.price * item.qty;
       itemAmount += Number(item.qty);
     });
-    const taxAmount = totalAmount / tax;
+    cart.products.forEach((item) => {
+      totalAmount += item.price * item.productOrders.quantity;
+      itemAmount += Number(item.productOrders.quantity);
+    });
 
+
+    const taxAmount = totalAmount / tax;
     let now = new Date();
+    
     return (
       <div>
         <div className="containerFORM">
