@@ -45,7 +45,7 @@ async function seed() {
 		},
 		{
 			username: 'lucy',
-			fullName: 'lucy',
+			fullName: 'lucy user',
 			isAdmin: 'false',
 			password: 'password123',
 			dob: '1998-05-11',
