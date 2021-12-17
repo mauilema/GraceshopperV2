@@ -15,11 +15,12 @@ export class CheckouthtmlForm extends Component {
 
   render() {
     const cartItems = this.props.guestCart.cartItems;
+    const cart = this.props.cart;
     const isLoggedIn = this.props.isLoggedIn
     let totalAmount = 0;
     let itemAmount = 0;
     let tax = 8.875;
-    console.log('isLoggedin checkout form: ', isLoggedIn)
+    console.log('isLoggedin checkout form: ', isLoggedIn);
 
     let orderId = faker.datatype.number({ min: 1000, max: 10000000 });
 
@@ -29,14 +30,15 @@ export class CheckouthtmlForm extends Component {
     });
     const taxAmount = totalAmount / tax;
 
+    let now = new Date();
     return (
       <div>
         <div className="containerFORM">
           <p className="help">Please review your bill and pay </p>
           <div className="boxFORM card-panel z-depth-3">
             <div className="merchant">
-              <h5 className="center-align">The Four Amigos</h5>
-              <p>date should go here calculate if enough time...{Date.now()}</p>
+              <h5 className="center-align">Fullstack Spirits</h5>
+              <p>{now.getMonth() + 1 + '/' + now.getDate() + '/' + now.getFullYear()}</p>
             </div>
             <div className="invoice">
               <table className="highlight">
@@ -48,8 +50,7 @@ export class CheckouthtmlForm extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                {}
-                  {cartItems.map((item) => (
+                {cartItems.map((item) => (
                     <tr key={item.id}>
                       <td>{item.qty}</td>
                       <td>{item.name}</td>
@@ -59,7 +60,7 @@ export class CheckouthtmlForm extends Component {
                   <tr>
                     <td></td>
                     <td className="right-align">Tax</td>
-                    <td className="right-align">${tax}</td>
+                    <td className="right-align">{tax}%</td>
                   </tr>
                   <tr>
                     <td></td>
@@ -70,7 +71,7 @@ export class CheckouthtmlForm extends Component {
                     <td></td>
                     <td className="right-align bold">Total</td>
                     <td className="right-align bold">
-                      ${totalAmount + taxAmount}
+                      ${Math.round((totalAmount + taxAmount) * 100) / 100}
                     </td>
                   </tr>
                 </tbody>
@@ -176,7 +177,7 @@ export class CheckouthtmlForm extends Component {
                 }
                 }
                 className="col s12 btn-large green btn waves-effect waves-dark register"
-              >h
+              >
                 <span>Checkout</span> <i className="fa fa-check"></i>
 
               </button>
