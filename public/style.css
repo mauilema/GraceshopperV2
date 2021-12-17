@@ -1065,7 +1065,7 @@ label {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background: url('https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80')
+	background: url('https://mocah.org/uploads/posts/562740-background-blur.jpg')
 		no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1080,7 +1080,8 @@ label {
 	width: 75%;
 	margin: 10px;
 	text-align: center;
-	background-color: rgb(230, 163, 39, 0.7);
+	background-color: white;
+	color: black;
 }
 
 .users-box {
@@ -1094,5 +1095,12 @@ label {
 	width: 95%;
 	margin: 10px;
 	text-align: center;
-	background-color: rgb(230, 163, 39, 0.7);
+	background: url('https://wallpaperaccess.com/full/696705.jpg')
+		no-repeat;
+	color: black;
 }
+
+.all-users-orders {
+	color: rgb(252, 247, 247);
+}
+

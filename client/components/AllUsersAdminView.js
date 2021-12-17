@@ -24,7 +24,7 @@ class AllUsersAdminView extends React.Component {
 							<div key={user.id} className="single-user">
 								<div>
 									<Link to={`/users/${user.id}`}>
-										<button className="view-user-info-button">
+										<button className="view-user-info-button" >
 											View User Info
 										</button>
 									</Link>

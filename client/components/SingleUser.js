@@ -48,7 +48,7 @@ class SingleUser extends React.Component {
                 <div>
                     <h1>All User's Orders:</h1>
                     {(user.orders === undefined || user.orders.length < 1) ? <h1>This User Has No Orders :(</h1> :
-                    <div>{user.orders.map(order =>
+                    <div className="all-users-orders">{user.orders.map(order =>
                     <div key={order.id} id='user-view-by-admin-order-div'>
                         <h2>Order Id: {order.id}</h2>
                         <h2>Fulfilled: {String(order.fulfilled)}</h2>
