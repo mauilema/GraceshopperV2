@@ -629,8 +629,12 @@ justify-content: center;
   .containerFORM {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    max-width: 420px;
     position: absolute;
+	  box-shadow: var(--box-shadow);
+	  justify-content: center;
+    background-color: rgb(185, 195, 177);
+  /* border-radius: 20% */
     /*     top: 50%; */
     left: 50%;
     transform: translate(-50%, 0%);
@@ -650,26 +654,11 @@ justify-content: center;
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding-top: 17rem;
+    padding-top: 5rem;
+    width: -65%;
     padding-bottom: 10rem;
     box-shadow: var(--box-shadow);
-
-  }
-  .credit-card-box {
-    width: 400px;
-    height: 280px;
-    background: linear-gradient(135deg, #03A9F4, #1976D2);
-    border-radius: 15px;
-    color: #fff !important;
-    text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
-  }
-  .credit-card-box {
-    width: 400px;
-    height: 280px;
-    background: linear-gradient(135deg, #03A9F4, #1976D2);
-    border-radius: 15px;
-    color: #fff !important;
-    text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
+    align-content: center;
   }
 
   .card-panel {
@@ -700,7 +689,7 @@ justify-content: center;
   .credit-card-box {
     width: 400px;
     height: 280px;
-    background: linear-gradient(135deg, #2aa073, #1a8848);
+    background: linear-gradient(135deg, #44e4a6, #209451);
     border-radius: 15px;
     color: #fff !important;
     text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
