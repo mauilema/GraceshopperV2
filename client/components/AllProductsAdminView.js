@@ -29,6 +29,9 @@ class AllProductsAdminView extends React.Component {
                   <div className="box" key={productAdmin.id}>
                       <h2>{productAdmin.name}</h2>
                       <img className="products-image-size" src={productAdmin.image} height='50' width='50'/>
+                      <h1>ABV: {productAdmin.ABV}%</h1>
+                      <h1 className="price">Price: ${productAdmin.price}</h1>
+                      <h1>Category: {productAdmin.alcoholType}</h1>
                       <div>
                       <Link to={`/adminProducts/${productAdmin.id}`}> 
                         <button className="view-more-product-info-button">Click for More Info</button>
