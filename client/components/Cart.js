@@ -23,9 +23,6 @@ export class Checkout extends Component {
     this.props.addToCart(cart);
   }
 
-  createOrder(cartItems) {
-    CheckoutForm(cartItems);
-  }
 
   render() {
     const cartItems = this.props.guestCart.cartItems;
