@@ -52,7 +52,7 @@ class AddProductByAdminForm extends React.Component {
                     <button className="add-new-user-button" type="submit" onClick={() => this.setState({showForm: true})} >Add New Product</button>
 
                     {this.state.showForm && (
-                        <form onSubmit={handleSubmit}>
+                        <form className="edit-product-admins" onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="name">Add Name: </label>
                                 <input name= "name" onChange={handleChange} value={name} />
