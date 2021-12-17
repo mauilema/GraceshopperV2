@@ -48,7 +48,7 @@ class AddUserByAdminForm extends React.Component {
 
         return (
                 <div className="add-user-form" >
-                    <label htmlFor="add-new-user-button"><h1>View form with button below:</h1></label>
+                    {/* <label htmlFor="add-new-user-button"><h1>View form with button below:</h1></label> */}
                     <button className="add-new-user-button" type="submit" onClick={() => this.setState({showForm: true})} >Add New User</button>
 
                     {this.state.showForm && (
