@@ -1,230 +1,235 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 :root {
-  --green: #fff;
-  --black: black;
-  --light-color: rgb(116, 114, 114);
-  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  --border: 0.2rem solid rgba(0, 0, 0, 0.1);
-  --outline: 0.1rem solid rgba(0, 0, 0, 0.1);
-  --outline-hover: 0.2rem solid var(--black);
+	--green: #fff;
+	--black: black;
+	--light-color: rgb(116, 114, 114);
+	--box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+	--border: 0.2rem solid rgba(0, 0, 0, 0.1);
+	--outline: 0.1rem solid rgba(0, 0, 0, 0.1);
+	--outline-hover: 0.2rem solid var(--black);
 }
 * {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  text-transform: capitalize;
-  transition: all 0.2s linear;
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	text-transform: capitalize;
+	transition: all 0.2s linear;
 }
 
 body {
   background: rgba(255, 255, 255, 0.913);
 }
+
 section {
-  padding: 2rem 9%;
+	padding: 2rem 9%;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 label {
-  display: block;
+	display: block;
 }
 
 nav a {
-  display: inline-block;
-  margin: 1em;
+	display: inline-block;
+	margin: 1em;
 }
 
 form div {
-  margin: 1em;
-  /* display: inline-block; */
+	margin: 1em;
+	/* display: inline-block; */
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 9%;
-  background: #fff;
-  /* box-shadow: blue; */
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 9%;
+	background: #fff;
+	/* box-shadow: blue; */
 }
 .navbar Link {
-  font-size: 1.7rem;
-  margin: 0 1rem;
-  color: rgb(229, 255, 0);
+	font-size: 1.7rem;
+	margin: 0 1rem;
+	color: rgb(229, 255, 0);
+}
+
+.navbar div {
+	width: 65%;
 }
 
 .navbar Link:hover {
-  color: green;
+	color: green;
 }
 
 .number {
-  padding: 0rem 0rem 2rem 0rem;
-  margin: 1rem 0rem 1rem 0rem;
+	padding: 0rem 0rem 2rem 0rem;
+	margin: 1rem 0rem 1rem 0rem;
 }
 
 section {
-  padding: 2rem 9%;
+	padding: 2rem 9%;
 }
 
 .home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url() no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 17rem;
-  padding-bottom: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url() no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 17rem;
+	padding-bottom: 10rem;
 }
 
 /* not sure if needed */
 .allProducts {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url() no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url() no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
 }
 
 #loggin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url("https://kpattorney.com/wp-content/uploads/2020/02/Dram-Shop-Laws-explained-by-kanner-and-pintaluga-scaled.jpeg")
-    no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url('https://kpattorney.com/wp-content/uploads/2020/02/Dram-Shop-Laws-explained-by-kanner-and-pintaluga-scaled.jpeg')
+		no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
 }
 
 form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-  color: rgb(255, 255, 255);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+	color: rgb(255, 255, 255);
 }
 
 #signUp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2021%2F01%2F15%2Falcohol-bottles-bar-STRONGESTLIQS9121.jpg&q=85");
-  background-position: center;
-  background-size: 80% auto;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-  color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url('https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2021%2F01%2F15%2Falcohol-bottles-bar-STRONGESTLIQS9121.jpg&q=85');
+	background-position: center;
+	background-size: 80% auto;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+	color: black;
 }
 
 /*all buttons*/
 button {
-  display: inline-block;
-  padding: 0.9rem 1.9rem;
-  color: rgb(55, 103, 55);
-  border-radius: 16px;
-  text-transform: capitalize;
+	display: inline-block;
+	padding: 0.9rem 1.9rem;
+	color: rgb(55, 103, 55);
+	border-radius: 16px;
+	text-transform: capitalize;
 }
 
 button:hover {
-  background-color: rgb(0, 0, 0);
+	background-color: rgb(0, 0, 0);
 }
 
 /*all products*/
 
 #products {
-  display: flex;
-  justify-content: space-between;
-  background: url("https://p0.piqsels.com/preview/902/404/8/blurred-background-close-up-colors-dark.jpg");
+	display: flex;
+	justify-content: space-between;
+	background: url('https://p0.piqsels.com/preview/902/404/8/blurred-background-close-up-colors-dark.jpg');
 }
 .product .wrapper {
-  /* padding: 1.7rem; */
-  padding-top: 1rem;
-  padding-bottom: 25rem;
-  display: flex;
-  /* flex: 1 1 1 100%; */
-  /* flex-basis: 100%; */
-  flex-wrap: wrap;
-  gap: 1rem 1rem 1rem 1rem;
-  justify-content: space-between;
+	/* padding: 1.7rem; */
+	padding-top: 1rem;
+	padding-bottom: 25rem;
+	display: flex;
+	/* flex: 1 1 1 100%; */
+	/* flex-basis: 100%; */
+	flex-wrap: wrap;
+	gap: 1rem 1rem 1rem 1rem;
+	justify-content: space-between;
 }
 
 .products .product {
-  padding: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  /* justify-content: space-between; */
+	padding: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	/* justify-content: space-between; */
 }
 
 .products .product:first-child {
-  padding: 2rem;
+	padding: 2rem;
 }
 
 /* FIX FLEX ALL PRODUCTS IN LINE */
 .products .product .box {
-  background: #fff;
-  border-radius: 0.4rem;
-  text-align: center;
-  padding: 2rem 1rem 1rem 1rem;
-  margin: 0rem 0rem 2rem 1rem;
-  /* outline-offset: groove; */
-  outline: var(--outline);
-  box-shadow: var(--box-shadow);
-  /* transition: 0.2s linear; */
-  justify-content: space-between;
+	background: #fff;
+	border-radius: 0.4rem;
+	text-align: center;
+	padding: 2rem 1rem 1rem 1rem;
+	margin: 0rem 0rem 2rem 1rem;
+	/* outline-offset: groove; */
+	outline: var(--outline);
+	box-shadow: var(--box-shadow);
+	/* transition: 0.2s linear; */
+	justify-content: space-between;
 }
 
 .products .product .box:hover {
-  outline-offset: 0rem;
-  outline: var(--outline-hover);
+	outline-offset: 0rem;
+	outline: var(--outline-hover);
 }
 
 .products .product .box img {
-  height: 20rem;
-  width: 20rem;
-  /* height: 300px;
+	height: 20rem;
+	width: 20rem;
+	/* height: 300px;
   width: 300px; */
 }
 
 .products .product .box h3 {
-  font-size: 2.5rem;
-  color: var(--black);
+	font-size: 2.5rem;
+	color: var(--black);
 }
 .products .product .box .price {
-  font-size: 2rem;
-  color: var(--light-color);
-  padding: 0.5rem 0;
+	font-size: 2rem;
+	color: var(--light-color);
+	padding: 0.5rem 0;
 }
 
 /* cart*/
 .shopping-cart {
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* background: url() no-repeat; */
-  /* background-position: center; */
-  /* background-size: cover; */
+	/* display: flex; */
+	/* align-items: center; */
+	/* justify-content: center; */
+	/* background: url() no-repeat; */
+	/* background-position: center; */
+	/* background-size: cover; */
 
-  /* background: url("https://kpattorney.com/wp-content/uploads/2020/02/Dram-Shop-Laws-explained-by-kanner-and-pintaluga-scaled.jpeg")
+	/* background: url("https://kpattorney.com/wp-content/uploads/2020/02/Dram-Shop-Laws-explained-by-kanner-and-pintaluga-scaled.jpeg")
     no-repeat; */
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
 }
 /* .totalLabel{
   text-align: right;
@@ -233,34 +238,31 @@ button:hover {
 } */
 
 .cart-box {
-  display: flex;
+	display: flex;
 }
 .cart-box:hover {
-  box-shadow: var(--box-shadow);
+	box-shadow: var(--box-shadow);
 }
 
 .cart-box img {
-  transform: scale(1.04);
+	transform: scale(1.04);
 }
 
-td img{
-  width: 200px;
-  height: 200px;
+td img {
+	width: 200px;
+	height: 200px;
 }
 /* .product-info{
   
 } */
 
 .noItems {
-display: flex;
-justify-content: center;
-  padding-top: 17rem;
-  padding-bottom: 10rem;
   /* https://images.unsplash.com/photo-1581775275191-f5f151f0a9dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFyJTIwZHJpbmtzfGVufDB8fDB8fA%3D%3D&w=1000&q=80 */ */
-
+	display: flex;
+	justify-content: center;
+	padding-top: 17rem;
+	padding-bottom: 10rem;
 }
-
-
 
 /* .container{
 
@@ -324,55 +326,55 @@ justify-content: center;
 
 /*single product*/
 #noItems {
-  flex: center;
+	flex: center;
 }
 .cart-box {
-  display: flex;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  border: 1px solid silver;
+	display: flex;
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	border: 1px solid silver;
 }
 .product-info {
-  display: flex;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  border: 1px solid silver;
+	display: flex;
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	border: 1px solid silver;
 }
 .product-info:hover {
-  border: none;
-  box-shadow: var(--box-shadow);
+	border: none;
+	box-shadow: var(--box-shadow);
 }
 
 .product-info img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
+	width: 300px;
+	height: 200px;
+	object-fit: cover;
 }
 
 #box {
-  background: #fff;
-  border-radius: 0.2rem;
-  text-align: center;
-  padding: 7rem 1rem;
-  outline-offset: groove;
-  outline: var(--outline);
-  box-shadow: var(--box-shadow);
-  transition: 0.2s linear;
+	background: #fff;
+	border-radius: 0.2rem;
+	text-align: center;
+	padding: 7rem 1rem;
+	outline-offset: groove;
+	outline: var(--outline);
+	box-shadow: var(--box-shadow);
+	transition: 0.2s linear;
 }
 #box img {
-  width: 25rem;
-  height: 25rem;
+	width: 25rem;
+	height: 25rem;
 }
 .price {
-  font-size: 2rem;
-  color: var(--light-color);
-  padding: 0.5rem 0;
+	font-size: 2rem;
+	color: var(--light-color);
+	padding: 0.5rem 0;
 }
 
 .singleUser {
-  padding-top: 7rem 1rem;
+	padding-top: 7rem 1rem;
 }
 
 /* https://images.unsplash.com/photo-1581775275191-f5f151f0a9dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFyJTIwZHJpbmtzfGVufDB8fDB8fA%3D%3D&w=1000&q=80 */
@@ -536,17 +538,22 @@ justify-content: center;
 } */
 
 #loggin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url("https://kpattorney.com/wp-content/uploads/2020/02/Dram-Shop-Laws-explained-by-kanner-and-pintaluga-scaled.jpeg")
-    no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url('https://kpattorney.com/wp-content/uploads/2020/02/Dram-Shop-Laws-explained-by-kanner-and-pintaluga-scaled.jpeg')
+		no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
 }
 
+.view-more-product-info-button {
+	background-color: rgb(19, 88, 179);
+	margin: 10px;
+	color: beige;
+}
 
   .view-more-product-info-button {
     background-color: rgb(19, 88, 179);
@@ -942,4 +949,118 @@ justify-content: center;
     -ms-transform: translate(0px, 0px);
     transform: translate3d(0px, 0px, 0px);
   }
-  
+
+    
+.view-more-product-info-button:hover {
+	background-color: rgb(19, 88, 179);
+	filter: brightness(125%);
+	margin: 10px;
+	color: beige;
+}
+
+.back-to-all-products-link {
+	margin-top: 40px;
+}
+
+.single-user-info-div {
+	border: 2px solid rgb(218, 214, 214);
+	margin: auto;
+	width: 50%;
+}
+
+#edit-user-restricted-button {
+	background-color: rgb(179, 51, 19);
+	margin: auto;
+	width: 50%;
+	margin: 30px;
+	color: beige;
+}
+
+#edit-user-restricted-button:hover {
+	background-color: rgb(179, 51, 19);
+	filter: brightness(125%);
+	margin: auto;
+	width: 50%;
+	margin: 30px;
+	color: beige;
+}
+
+#user-view-by-admin-order-div {
+	margin-bottom: 20px;
+	border: 2px solid rgb(218, 214, 214);
+	margin: auto;
+	width: 50%;
+}
+
+/* profile component */
+.profile-view {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url('https://wallpaperaccess.com/full/5463459.jpg') no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+	color: #fff;
+}
+
+.profile-info {
+	width: 75%;
+	text-align: center;
+	background-color: rgb(230, 163, 39, 0.7);
+}
+
+table,
+th,
+td {
+	/* background-color: azure; */
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	width: 65%;
+}
+
+tfoot,
+thead {
+	background-color: #ddcd72;
+}
+
+tr:nth-child(even) {
+	background-color: #ddcd72;
+}
+
+tr:nth-child(odd) {
+	background-color: #fafafa;
+}
+
+form {
+	color: black;
+	text-align: center;
+}
+
+/* both cart components */
+.shopping-cart {
+	/* display: flex; */
+	align-items: center;
+	justify-content: center;
+	background: url('https://www.teahub.io/photos/full/61-615051_2400x1200-irish-bar-by-murataral-irish-bar-by.jpg')
+		no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+	color: #fff;
+	flex-direction: column;
+}
+
+input {
+	text-align: center;
+}
+
+label {
+	color: white;
+}
