@@ -39,7 +39,7 @@ class AllProductsAdminView extends React.Component {
                       </div>
                       <h3>${productAdmin.price}</h3>
                       <div className="delete-button-div">
-                          <button className="delete-button" type="submit" onClick={() => {this.props.deleteProductAdmin(productAdmin.id)}}>DELETE USER || X</button>
+                          <button className="delete-button" type="submit" onClick={() => {this.props.deleteProductAdmin(productAdmin.id)}}>DELETE PRODUCT || X</button>
                       </div>
                     <div>
                     </div>
