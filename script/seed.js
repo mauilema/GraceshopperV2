@@ -61,7 +61,7 @@ async function seed() {
 			price: 44,
 			description: 'this item is out of stock',
 			alcoholType: 'tequila',
-			image: 'https://www.liquor.com/thmb/d9fYsp52ncAy1eajXuzIZQMNaCk=/440x440/filters:max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__01__18135838__what-to-do-with-port_article2_720x720-56a0d00bd52744b8b202a20bd718ab53.jpg'
+			image: 'https://c1.wallpaperflare.com/preview/486/159/708/tequila-bottle-glass-tequila-bottle.jpg'
 		},
 		{
 			name: 'Smith',
@@ -70,7 +70,8 @@ async function seed() {
 			price: 25,
 			description: 'this item is out of stock',
 			alcoholType: 'rum',
-			image: 'https://www.liquor.com/thmb/d9fYsp52ncAy1eajXuzIZQMNaCk=/440x440/filters:max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__01__18135838__what-to-do-with-port_article2_720x720-56a0d00bd52744b8b202a20bd718ab53.jpg'
+			image: 'https://images.unsplash.com/photo-1515777714766-d662e374bdd4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cnVtJTIwYm90dGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+
 		},
 	]
 
