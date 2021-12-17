@@ -69,7 +69,7 @@ class EditUser extends React.Component {
 						<select
 							onChange={this.handleSelectChange}
 							name="isAdmin"
-							value={this.state.isAdmin}
+							value={isAdmin}
 						>
 							<option value="true">True</option>
 							<option value="false">False</option>
