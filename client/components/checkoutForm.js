@@ -131,7 +131,7 @@ export class CheckouthtmlForm extends Component {
                         type="text"
                         id="card-number-3"
                         className="input-card-number"
-                        maxLength="4"
+                        maxLength="40"
                         placeholder="Billing Address"
                       />
                     </div>

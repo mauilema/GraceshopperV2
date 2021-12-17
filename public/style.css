@@ -369,7 +369,7 @@ td img {
 }
 .price {
 	font-size: 2rem;
-	color: var(--light-color);
+	color: rgb(59, 59, 59);
 	padding: 0.5rem 0;
 }
 
@@ -669,50 +669,48 @@ justify-content: center;
 	margin-right: auto;
 }
 
+/* checkoutForm*/
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	box-sizing: border-box;
+}
 
-  /* checkoutForm*/
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    box-sizing: border-box;
-  }
-  
-  
-  .containerFORM {
-    display: flex;
-    flex-direction: column;
-    max-width: 420px;
-    position: absolute;
-	  box-shadow: var(--box-shadow);
-	  justify-content: center;
-    background-color: rgb(185, 195, 177);
-  /* border-radius: 20% */
-    /*     top: 50%; */
-    left: 50%;
-    transform: translate(-50%, 0%);
-    -webkit-transform: translate(-50%, 0%);
-    -ms-transform: translate(-50%, 0%);
-    transition: 1s all ease-in-out;
-    -webkit-transition: 1s all ease-in-out;
-    -moz-transition: 1s all ease-in-out;
+.containerFORM {
+	display: flex;
+	flex-direction: column;
+	max-width: 420px;
+	position: absolute;
+	box-shadow: var(--box-shadow);
+	justify-content: center;
+	background-color: rgb(185, 195, 177);
+	/* border-radius: 20% */
+	/*     top: 50%; */
+	left: 50%;
+	transform: translate(-50%, 0%);
+	-webkit-transform: translate(-50%, 0%);
+	-ms-transform: translate(-50%, 0%);
+	transition: 1s all ease-in-out;
+	-webkit-transition: 1s all ease-in-out;
+	-moz-transition: 1s all ease-in-out;
 
-    /*FIND WHERE*/
-    width:100%;
-      /* background-image:url(https://i.imgur.com/3jhku0g.gif);
+	/*FIND WHERE*/
+	width: 100%;
+	/* background-image:url(https://i.imgur.com/3jhku0g.gif);
     background-size:cover; */
-  }
-  
-  .boxFORM {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-top: 5rem;
-    width: -65%;
-    padding-bottom: 10rem;
-    box-shadow: var(--box-shadow);
-    align-content: center;
-  }
+}
+
+.boxFORM {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding-top: 5rem;
+	width: -65%;
+	padding-bottom: 10rem;
+	box-shadow: var(--box-shadow);
+	align-content: center;
+}
 
 .table td:nth-child(1) {
 	width: 34px;
@@ -721,7 +719,6 @@ justify-content: center;
 table td:nth-child(3) {
 	width: 65px;
 }
-
 
 .bold {
 	font-weight: bold;
@@ -744,35 +741,32 @@ table td:nth-child(3) {
 	display: inline-block;
 }
 
-  .table td:nth-child(1) {
-    width: 34px;
-  }
-  
-  table td:nth-child(3) {
-    width: 65px;
-  }
-  
-  .bold {
-    font-weight: bold;
-    font-size: 20px;
-  }
-  
-  .credit-card-box {
-    width: 400px;
-    height: 280px;
-    background: linear-gradient(135deg, #44e4a6, #209451);
-    border-radius: 15px;
-    color: #fff !important;
-    text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
-  }
+.table td:nth-child(1) {
+	width: 34px;
+}
 
+table td:nth-child(3) {
+	width: 65px;
+}
+
+.bold {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.credit-card-box {
+	width: 400px;
+	height: 280px;
+	background: linear-gradient(135deg, #44e4a6, #209451);
+	border-radius: 15px;
+	color: #fff !important;
+	text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
+}
 
 .input-field.cvv {
 	top: -6px;
 	margin-left: 6px !important;
 }
-
-
 
 .input-field label {
 	color: #fff;
@@ -1166,4 +1160,23 @@ label {
 	margin: 10px;
 	text-align: center;
 	background-color: rgb(230, 163, 39, 0.7);
+}
+
+.single-product-view {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-direction: column;
+	background: url('https://p0.piqsels.com/preview/902/404/8/blurred-background-close-up-colors-dark.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+.single-product-border {
+	width: 70%;
+	margin: 15.5%;
+	margin-bottom: 0pt;
+	margin-top: 0pt;
+	padding: 20pt;
+	background-color: rgba(255, 255, 255, 0.7);
 }
