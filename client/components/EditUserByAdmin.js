@@ -12,7 +12,7 @@ class EditUser extends React.Component {
             email: this.props.user.email || '',
             address: this.props.user.address || '',
             dob: this.props.user.dob || '',
-            password: '',
+            password: this.props.user.password || '',
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -69,7 +69,7 @@ class EditUser extends React.Component {
                             <label htmlFor="dob">Edit DOB: </label>
                             <input name= "dob" onChange={handleChange} value={dob} type="date" />
 
-                            <label htmlFor="password">Edit Password: </label>
+                            <label htmlFor="password">Reset User Password: </label>
                             <input name= "password" onChange={handleChange} value={password} type="password"/>
                             </div>                        
                         <div>
