@@ -56,18 +56,18 @@ async function seed() {
 	const outOfStockProducts = [
 		{
 			name: 'James',
-			ABV: 21,
+			ABV: 34,
 			stockAmount: 0,
-			price: 21,
+			price: 44,
 			description: 'this item is out of stock',
 			alcoholType: 'tequila',
 			image: 'https://www.liquor.com/thmb/d9fYsp52ncAy1eajXuzIZQMNaCk=/440x440/filters:max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__01__18135838__what-to-do-with-port_article2_720x720-56a0d00bd52744b8b202a20bd718ab53.jpg'
 		},
 		{
 			name: 'Smith',
-			ABV: 21,
+			ABV: 45,
 			stockAmount: 0,
-			price: 21,
+			price: 25,
 			description: 'this item is out of stock',
 			alcoholType: 'rum',
 			image: 'https://www.liquor.com/thmb/d9fYsp52ncAy1eajXuzIZQMNaCk=/440x440/filters:max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__01__18135838__what-to-do-with-port_article2_720x720-56a0d00bd52744b8b202a20bd718ab53.jpg'
