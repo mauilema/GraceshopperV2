@@ -97,6 +97,7 @@ class AllProducts extends React.Component {
 												)}
 											</div>
 											<button
+												disabled={product.stockAmount < 1}
 												onClick={() => {
 													this.handleClick(product, product.qty);
 												}}

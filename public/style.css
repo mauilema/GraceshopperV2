@@ -1048,11 +1048,11 @@ form {
 	align-items: center;
 	justify-content: center;
 	background: url('https://www.teahub.io/photos/full/61-615051_2400x1200-irish-bar-by-murataral-irish-bar-by.jpg')
-		no-repeat;
+		repeat;
 	background-position: center;
 	background-size: cover;
 	padding-top: 10rem;
-	padding-bottom: 10rem;
+	/* padding-bottom: 10rem; */
 	color: #fff;
 	flex-direction: column;
 }
