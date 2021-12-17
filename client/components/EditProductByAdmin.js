@@ -47,7 +47,7 @@ class EditProductByAdmin extends React.Component {
        const { name, image, ABV, stockAmount, price, description, alcoholType } = this.state
        const { handleSubmit, handleChange, } = this
        return (
-           <div className="single-user-info">
+           <div className="edit-product-admins ">
                <h3>Enter Changes Below Then Save Changes</h3>
                <form onSubmit={handleSubmit}>
                    <div>
