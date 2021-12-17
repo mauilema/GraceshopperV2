@@ -3,13 +3,23 @@ import React, { Component } from "react";
 import Swal from "sweetalert2";
 import faker from "faker";
 
-//POST
 export class CheckouthtmlForm extends Component {
+  constructor(){
+    super();
+		this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(product) {
+
+  }
+
   render() {
     const cartItems = this.props.guestCart.cartItems;
+    const isLoggedIn = this.props.isLoggedIn
     let totalAmount = 0;
     let itemAmount = 0;
     let tax = 8.875;
+    console.log('isLoggedin checkout form: ', isLoggedIn)
 
     let orderId = faker.datatype.number({ min: 1000, max: 10000000 });
 
@@ -18,8 +28,6 @@ export class CheckouthtmlForm extends Component {
       itemAmount += Number(item.qty);
     });
     const taxAmount = totalAmount / tax;
-
-    console.log("cartItems ", cartItems);
 
     return (
       <div>
@@ -40,6 +48,7 @@ export class CheckouthtmlForm extends Component {
                   </tr>
                 </thead>
                 <tbody>
+                {}
                   {cartItems.map((item) => (
                     <tr key={item.id}>
                       <td>{item.qty}</td>
@@ -182,6 +191,8 @@ export class CheckouthtmlForm extends Component {
 const mapStateToProps = (state) => {
   return {
     guestCart: state.guestCart,
+    cart: state.cart,
+    isLoggedIn: !!state.auth.id,
   };
 };
 
