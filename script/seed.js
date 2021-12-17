@@ -36,20 +36,20 @@ async function seed() {
 
 	const testUsers = [
 		{
-			username: 'cody',
-			fullName: 'cody user',
+			username: 'Christina',
+			fullName: 'Christina D',
 			isAdmin: 'false',
 			password: 'password123',
-			dob: '1990-04-01',
-			email: 'fsacody@aol.com',
+			dob: '1999-04-01',
+			email: 'fsachristina@aol.com',
 		},
 		{
-			username: 'lucy',
-			fullName: 'lucy user',
+			username: 'Janelly',
+			fullName: 'Janelly C',
 			isAdmin: 'false',
 			password: 'password123',
-			dob: '1998-05-11',
-			email: 'fsalucy@aol.com',
+			dob: '2000-05-11',
+			email: 'fsajanelly@aol.com',
 		},
 	]
 
