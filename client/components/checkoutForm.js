@@ -155,7 +155,7 @@ export class CheckouthtmlForm extends Component {
 
             <div className="button checkout row">
               <button
-                onClick={() => {
+                onClick={ () => {
                   Swal.fire({
                     title: `Thank you for your purchase!`,
                     text: `Your order number is: ${orderId}`,
@@ -163,7 +163,7 @@ export class CheckouthtmlForm extends Component {
                     inputAttributes: {
                       autocapitalize: "off",
                     },
-                  }).then(()=>this.props.history.push('/products'))
+                  }).then(()=>this.props.history.push('/products')).then(async ()=> await localStorage.clear()).then(()=> location.reload());
                 }
                 }
                 className="col s12 btn-large green btn waves-effect waves-dark register"
