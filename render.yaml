@@ -8,8 +8,6 @@ services:
     dockerfilePath: Dockerfile.render
     region: ohio
     plan: free # optional; defaults to starter
-    buildCommand: npm install & npm run build
-    startCommand: npm run start
     numInstances: 1
     envVars:
       - key: JWT # Imported from Heroku app
