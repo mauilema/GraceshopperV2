@@ -6,12 +6,9 @@ services:
     name: graceshopper-4-amigos
     env: docker # valid values: https://render.com/docs/yaml-spec#environment
     dockerfilePath: Dockerfile.render
-    region: ohio
     plan: free # optional; defaults to starter
-    numInstances: 1
+    numInstances: 0
     envVars:
       - key: JWT # Imported from Heroku app
         value: shh
-    
-
 
