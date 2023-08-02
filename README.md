@@ -115,6 +115,7 @@ Now that you've got the code, follow these steps to get acclimated:
 - Update project name and description in `package.json`
 - Create a .env file in your root folder. Enter the keys below; follow up with an equal sign and assign your preferred string values. 
 ```
+
 JWT,
 JoseAdminUsername
 JoseAdminPassword,
@@ -125,6 +126,7 @@ JanellyTestUserPassword
 ```
 - import your .env as early as possible in your application main file like this:
 ```
+
 require("dotenv").config();
 ```
 - `npm install`
