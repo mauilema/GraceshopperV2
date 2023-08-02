@@ -6,6 +6,7 @@ const {
 const Orders = require('../server/db/models/Orders');
 const ProductOrders = require('../server/db/models/ProductOrders');
 const { products, users, orders, productOrders } = require('./seedData');
+require("dotenv").config();
 
 /**
  * seed - this function clears the database, updates tables to
@@ -17,18 +18,18 @@ async function seed() {
 
 	const admins = [
 		{
-			username: 'JoseAdmin',
+			username: process.env.JoseAdminUsername,
 			fullName: 'Jose Admin',
 			isAdmin: 'true',
-			password: 'admin456',
+			password: process.env.JoseAdminPassword,
 			dob: '1999-04-01',
 			email: 'fsajose@aol.com',
 		},
 		{
-			username: 'MiliAdmin',
+			username: process.env.MiliAdminUsername,
 			fullName: 'Mili Admin',
 			isAdmin: 'true',
-			password: 'admin123',
+			password: process.env.MiliAdminPassword,
 			dob: '2000-05-11',
 			email: 'fsamili@aol.com',
 		},
@@ -39,7 +40,7 @@ async function seed() {
 			username: 'Christina',
 			fullName: 'Christina D',
 			isAdmin: 'false',
-			password: 'password123',
+			password: process.env.ChristinaTestUserPassword,
 			dob: '1999-04-01',
 			email: 'fsachristina@aol.com',
 		},
@@ -47,7 +48,7 @@ async function seed() {
 			username: 'Janelly',
 			fullName: 'Janelly C',
 			isAdmin: 'false',
-			password: 'password123',
+			password: process.env.JanellyTestUserPassword,
 			dob: '2000-05-11',
 			email: 'fsajanelly@aol.com',
 		},
