@@ -118,10 +118,10 @@ Now that you've got the code, follow these steps to get acclimated:
 
 JWT,
 JoseAdminUsername
-JoseAdminPassword,
-MiliAdminUsername,
-MiliAdminPassword,
-ChristinaTestUserPassword,
+JoseAdminPassword
+MiliAdminUsername
+MiliAdminPassword
+ChristinaTestUserPassword
 JanellyTestUserPassword
 ```
 - import your .env as early as possible in your application main file like this:
