@@ -113,6 +113,20 @@ git branch -m master main
 Now that you've got the code, follow these steps to get acclimated:
 
 - Update project name and description in `package.json`
+- Create a .env file in your root folder. Enter the keys below; follow up with an equal sign and assign your preferred string values. 
+```
+JWT,
+JoseAdminUsername
+JoseAdminPassword,
+MiliAdminUsername,
+MiliAdminPassword,
+ChristinaTestUserPassword,
+JanellyTestUserPassword
+```
+- import your .env as early as possible in your application main file like this:
+```
+require("dotenv").config();
+```
 - `npm install`
 - Create two postgres databases (`MY_APP_NAME` should match the `name`
   parameter in `package.json`):
